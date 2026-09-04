@@ -9,10 +9,15 @@ import { FiEye, FiEyeOff } from "react-icons/fi";
 import { FiArrowRight } from "react-icons/fi";
 import googleIcon from "../../../assets/icons/google.webp";
 import githubIcon from "../../../assets/icons/github.webp";
-
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../context/AuthContext";
 const Register = () => {
     const [role, setRole] = useState("");
     const [errors, setErrors] = useState({});
+    const { register } = useAuth();
+    const navigate = useNavigate();
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [serverError, setServerError] = useState("");
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
     const [formData, setFormData] = useState({
@@ -37,17 +42,28 @@ const Register = () => {
         }));
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
+        setServerError("");
 
-        const isValid = validateForm();
+        if (!validateForm()) return;
 
-        if (!isValid) {
-            return;
+        setIsSubmitting(true);
+        try {
+            await register({
+                name: formData.fullName,
+                email: formData.email,
+                password: formData.password,
+                role,
+            });
+            navigate("/");
+        } catch (err) {
+            setServerError(
+                err.response?.data?.message || "An error occurred. Please try again."
+            );
+        } finally {
+            setIsSubmitting(false);
         }
-
-        console.log("Role:", role);
-        console.log("Form Data:", formData);
     };
 
     const validateForm = () => {
@@ -232,28 +248,33 @@ const Register = () => {
                                 )}
                             </div>
 
-                            <div className="relative">
-                                <FiLock className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-600" />
+                            <div className="">
+                                <label className="mb-2 block text-sm font-medium">
+                                    Password
+                                </label>
+                                <div className="relative">
+                                    <FiLock className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-600" />
 
-                                <input
-                                    type={showPassword ? "text" : "password"}
-                                    placeholder="At least 8 characters"
-                                    className={`w-full rounded-lg border px-4 py-3 pl-10 pr-10 text-gray-700 outline-none transition ${errors.password
-                                        ? "border-red-500"
-                                        : "border-gray-200"
-                                        }`}
-                                    name="password"
-                                    value={formData.password}
-                                    onChange={handleChange}
-                                />
+                                    <input
+                                        type={showPassword ? "text" : "password"}
+                                        placeholder="At least 8 characters"
+                                        className={`w-full rounded-lg border px-4 py-3 pl-10 pr-10 text-gray-700 outline-none transition ${errors.password
+                                            ? "border-red-500"
+                                            : "border-gray-200"
+                                            }`}
+                                        name="password"
+                                        value={formData.password}
+                                        onChange={handleChange}
+                                    />
 
-                                <button
-                                    type="button"
-                                    onClick={() => setShowPassword(!showPassword)}
-                                    className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-700"
-                                >
-                                    {showPassword ? <FiEyeOff /> : <FiEye />}
-                                </button>
+                                    <button
+                                        type="button"
+                                        onClick={() => setShowPassword(!showPassword)}
+                                        className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-700"
+                                    >
+                                        {showPassword ? <FiEyeOff /> : <FiEye />}
+                                    </button>
+                                </div>
                             </div>
                             {errors.password && (
                                 <div className="mt-3 w-full rounded-lg border border-red-200 bg-red-50 px-4 py-2 text-center">
@@ -263,28 +284,36 @@ const Register = () => {
                                 </div>
                             )}
 
-                            <div className="relative">
-                                <FiLock className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-600" />
+                            <div className="">
+                                <label className="mb-2 block text-sm font-medium">
+                                    Confirm Password
+                                </label>
+                                <div className="relative">
+                                    <div className="absolute left-3 top-1/2 -translate-y-1/2">
+                                        <FiLock className="text-gray-600" />
+                                    </div>
 
-                                <input
-                                    type={showConfirmPassword ? "text" : "password"}
-                                    placeholder="Confirm your password"
-                                    className={`w-full rounded-lg border px-4 py-3 pl-10 pr-10 text-gray-700 outline-none transition ${errors.confirmPassword
-                                        ? "border-red-500"
-                                        : "border-gray-200"
-                                        }`}
-                                    name="confirmPassword"
-                                    value={formData.confirmPassword}
-                                    onChange={handleChange}
-                                />
+                                    <input
+                                        type={showConfirmPassword ? "text" : "password"}
+                                        placeholder="Confirm your password"
+                                        className={`w-full rounded-lg border px-4 py-3 pl-10 pr-10 text-gray-700 outline-none transition ${errors.confirmPassword
+                                            ? "border-red-500"
+                                            : "border-gray-200"
+                                            }`}
+                                        name="confirmPassword"
+                                        value={formData.confirmPassword}
+                                        onChange={handleChange}
+                                    />
 
-                                <button
-                                    type="button"
-                                    onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                                    className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-700"
-                                >
-                                    {showConfirmPassword ? <FiEyeOff /> : <FiEye />}
-                                </button>
+
+                                    <button
+                                        type="button"
+                                        onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                                        className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-700"
+                                    >
+                                        {showConfirmPassword ? <FiEyeOff /> : <FiEye />}
+                                    </button>
+                                </div>
                             </div>
                             {errors.confirmPassword && (
                                 <div className="mt-3 w-full rounded-lg border border-red-200 bg-red-50 px-4 py-2 text-center">
@@ -317,12 +346,19 @@ const Register = () => {
                                 )}
                             </div>
 
+                            {serverError && (
+                                <div className="rounded-lg border border-red-200 bg-red-50 px-4 py-2 text-center">
+                                    <p className="text-xs font-lora font-medium text-red-500">
+                                        {serverError}
+                                    </p>
+                                </div>
+                            )}
+
                             {/* Register Button */}
                             <button
-                                type="submit"
-                                className="w-full rounded-lg bg-blue-600 px-4 py-3 font-semibold text-white cursor-pointer transition-all duration-300 hover:bg-blue-700"
-                            >
-                                Create Account <FiArrowRight className="inline-block ml-1" />
+                                type="submit" disabled={isSubmitting}
+                                className="w-full rounded-lg bg-blue-600 px-4 py-3 font-semibold text-white cursor-pointer transition-all duration-300 hover:bg-blue-700 disabled:opacity-60 disabled:cursor-not-allowed"                            >
+                                {isSubmitting ? "Creating Account..." : <>Create Account <FiArrowRight className="inline-block ml-1" /></>}
                             </button>
 
                         </form>

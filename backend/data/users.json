@@ -1,1 +1,18 @@
-[]
+[
+  {
+    "id": "e735f483-ffbf-4ac5-acf5-53642900f85d",
+    "firstName": "",
+    "lastName": "",
+    "name": "meram amr",
+    "email": "meramamr8@gmail.com",
+    "passwordHash": "$2a$12$ZVF2WdBdK0sYw/xQtNttCOP/MEmz9k0oFcM1qo2zzoogcy4j1u9j6",
+    "role": "client",
+    "avatar": "",
+    "bio": "",
+    "location": "",
+    "hourlyRate": 0,
+    "skills": [],
+    "createdAt": "2026-09-04T20:47:34.512Z",
+    "updatedAt": "2026-09-04T20:47:34.512Z"
+  }
+]

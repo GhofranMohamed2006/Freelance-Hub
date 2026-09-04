@@ -1,1 +1,17 @@
-[]
+[
+  {
+    "id": "6618a9b8-0767-46b3-86f6-468e3744b2bc",
+    "userId": "e735f483-ffbf-4ac5-acf5-53642900f85d",
+    "notifications": {
+      "messages": true,
+      "proposals": true,
+      "projects": true,
+      "payments": true,
+      "marketing": false
+    },
+    "timezone": "UTC",
+    "language": "en",
+    "createdAt": "2026-09-04T20:47:34.513Z",
+    "updatedAt": "2026-09-04T20:47:34.513Z"
+  }
+]
