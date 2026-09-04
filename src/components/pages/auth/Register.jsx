@@ -131,7 +131,7 @@ const Register = () => {
                                 <button
                                     type="button"
                                     onClick={() => {
-                                        setRole("client");
+                                        setRole(role === "client" ? "" : "client");
                                         setErrors((prev) => ({
                                             ...prev,
                                             role: "",
@@ -154,7 +154,7 @@ const Register = () => {
                                 <button
                                     type="button"
                                     onClick={() => {
-                                        setRole("freelancer");
+                                        setRole(role === "freelancer" ? "" : "freelancer");
                                         setErrors((prev) => ({
                                             ...prev,
                                             role: "",
