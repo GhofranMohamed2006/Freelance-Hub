@@ -1,4 +1,3 @@
-import Navbar from "../../navbar/Navbar";
 import { useState } from "react";
 import { FiTool } from "react-icons/fi";
 import { FiBriefcase } from "react-icons/fi";
@@ -9,7 +8,7 @@ import { FiEye, FiEyeOff } from "react-icons/fi";
 import { FiArrowRight } from "react-icons/fi";
 import googleIcon from "../../../assets/icons/google.webp";
 import githubIcon from "../../../assets/icons/github.webp";
-import { Link, useNavigate } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 const Register = () => {
     const [role, setRole] = useState("");
@@ -109,8 +108,6 @@ const Register = () => {
     return (
         <div className="min-h-screen">
 
-            {/* Navbar */}
-            <Navbar />
             <div className="min-h-screen bg-linear-to-br from-purple-100 via-white to-purple-50">
 
                 {/* Register Section */}
