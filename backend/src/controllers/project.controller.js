@@ -1,0 +1,9 @@
+const s=require("../services/project.service");
+exports.list=(req,res,next)=>{try{res.json(s.list(req.query,req.user));}catch(e){next(e);}};
+exports.get=(req,res,next)=>{try{res.json(s.get(req.params.id,req.user));}catch(e){next(e);}};
+exports.create=(req,res,next)=>{try{res.status(201).json(s.create(req.body,req.user));}catch(e){next(e);}};
+exports.update=(req,res,next)=>{try{res.json(s.update(req.params.id,req.body,req.user));}catch(e){next(e);}};
+exports.remove=(req,res,next)=>{try{s.remove(req.params.id,req.user);res.json({message:"Project deleted"});}catch(e){next(e);}};
+exports.addMilestone=(req,res,next)=>{try{res.status(201).json(s.addMilestone(req.params.id,req.body,req.user));}catch(e){next(e);}};
+exports.updateMilestone=(req,res,next)=>{try{res.json(s.updateMilestone(req.params.id,req.params.milestoneId,req.body,req.user));}catch(e){next(e);}};
+exports.removeMilestone=(req,res,next)=>{try{s.removeMilestone(req.params.id,req.params.milestoneId,req.user);res.json({message:"Milestone deleted"});}catch(e){next(e);}};

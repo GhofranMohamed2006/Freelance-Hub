@@ -1,0 +1,42 @@
+[
+  {
+    "id": "cat-web",
+    "name": "Web Development",
+    "slug": "web-development"
+  },
+  {
+    "id": "cat-uiux",
+    "name": "UI/UX Design",
+    "slug": "ui-ux-design"
+  },
+  {
+    "id": "cat-logo",
+    "name": "Logo Design",
+    "slug": "logo-design"
+  },
+  {
+    "id": "cat-mobile",
+    "name": "Mobile Apps",
+    "slug": "mobile-apps"
+  },
+  {
+    "id": "cat-copy",
+    "name": "Copywriting",
+    "slug": "copywriting"
+  },
+  {
+    "id": "cat-video",
+    "name": "Video Editing",
+    "slug": "video-editing"
+  },
+  {
+    "id": "cat-ai",
+    "name": "AI Integration",
+    "slug": "ai-integration"
+  },
+  {
+    "id": "cat-marketing",
+    "name": "Digital Marketing",
+    "slug": "digital-marketing"
+  }
+]
