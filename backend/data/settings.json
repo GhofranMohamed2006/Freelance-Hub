@@ -13,5 +13,20 @@
     "language": "en",
     "createdAt": "2026-09-04T20:47:34.513Z",
     "updatedAt": "2026-09-04T20:47:34.513Z"
+  },
+  {
+    "id": "a95d4d0b-a5a9-44df-95b7-452c97feb587",
+    "userId": "02ba4369-0c74-4adf-b9fb-5dfbf87f9c6e",
+    "notifications": {
+      "messages": true,
+      "proposals": true,
+      "projects": true,
+      "payments": true,
+      "marketing": false
+    },
+    "timezone": "UTC",
+    "language": "en",
+    "createdAt": "2026-09-04T22:22:40.234Z",
+    "updatedAt": "2026-09-04T22:22:40.234Z"
   }
 ]

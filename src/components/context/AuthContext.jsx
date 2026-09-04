@@ -8,29 +8,30 @@ export const AuthProvider = ({ children }) => {
         const saved = localStorage.getItem("user");
         return saved ? JSON.parse(saved) : null;
     });
-    const [token, setToken] = useState(() => localStorage.getItem("token"));
+    const [token, setToken] = useState(() => localStorage.getItem("lynk_token"));
 
     const persistSession = ({ token, user }) => {
-        localStorage.setItem("token", token);
+        localStorage.setItem("lynk_token", token);
         localStorage.setItem("user", JSON.stringify(user));
         setToken(token);
         setUser(user);
     };
 
     const register = async (formData) => {
-        const { data } = await registerUser(formData);
+        const response = await registerUser(formData);
+        const data = response.data || response;
         persistSession(data);
         return data;
     };
 
     const login = async (email, password) => {
-        const { data } = await loginUser({ email, password });
+        const data = await loginUser({ email, password });
         persistSession(data);
         return data;
     };
 
     const logout = () => {
-        localStorage.removeItem("token");
+        localStorage.removeItem("lynk_token");
         localStorage.removeItem("user");
         setToken(null);
         setUser(null);

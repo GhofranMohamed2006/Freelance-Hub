@@ -14,5 +14,21 @@
     "skills": [],
     "createdAt": "2026-09-04T20:47:34.512Z",
     "updatedAt": "2026-09-04T20:47:34.512Z"
+  },
+  {
+    "id": "02ba4369-0c74-4adf-b9fb-5dfbf87f9c6e",
+    "firstName": "",
+    "lastName": "",
+    "name": "Rawda Mohamed",
+    "email": "rawda.m7med.sa3d@gmail.com",
+    "passwordHash": "$2a$12$cHYSkfshSbWBwI2874qReen/PT4iIa58PqKGKagYHm5davhsuWRPW",
+    "role": "client",
+    "avatar": "",
+    "bio": "",
+    "location": "",
+    "hourlyRate": 0,
+    "skills": [],
+    "createdAt": "2026-09-04T22:22:40.232Z",
+    "updatedAt": "2026-09-04T22:22:40.232Z"
   }
 ]

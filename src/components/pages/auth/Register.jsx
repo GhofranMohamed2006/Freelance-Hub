@@ -9,7 +9,7 @@ import { FiEye, FiEyeOff } from "react-icons/fi";
 import { FiArrowRight } from "react-icons/fi";
 import googleIcon from "../../../assets/icons/google.webp";
 import githubIcon from "../../../assets/icons/github.webp";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 const Register = () => {
     const [role, setRole] = useState("");

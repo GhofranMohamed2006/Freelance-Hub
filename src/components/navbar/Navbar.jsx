@@ -1,10 +1,16 @@
 import { useState } from "react";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { FiMenu, FiX } from "react-icons/fi";
 import Button from "../../components/common/Button";
 import UserIcon from "../../components/common/UserIcon";
 
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    const isLoginActive = location.pathname === "/login";
+    const isRegisterActive = !isLoginActive;
 
     return (
         <nav className="w-full bg-white shadow-sm">
@@ -12,49 +18,49 @@ const Navbar = () => {
 
                 {/* Logo */}
                 <div>
-                    <a href="/" className="flex items-center gap-2">
+                    <Link to="/" className="flex items-center gap-2">
                         <span className="text-2xl font-bold text-blue-700">
                             Lynk
                         </span>
-                    </a>
+                    </Link>
                 </div>
 
                 {/* Desktop Navigation */}
                 <div className="hidden items-center gap-8 lg:flex lg:mx-auto">
-                    <a
-                        href="/"
+                    <Link
+                        to="/"
                         className="text-lg transition-all duration-300 hover:text-blue-800"
                     >
                         Home
-                    </a>
+                    </Link>
 
-                    <a
-                        href="/freelancers"
+                    <Link
+                        to="/freelancers"
                         className="text-lg transition-all duration-300 hover:text-blue-800"
                     >
                         Explore
-                    </a>
+                    </Link>
 
-                    <a
-                        href="/projects"
+                    <Link
+                        to="/projects"
                         className="text-lg transition-all duration-300 hover:text-blue-800"
                     >
                         Talents
-                    </a>
+                    </Link>
 
-                    <a
-                        href="/services"
+                    <Link
+                        to="/services"
                         className="text-lg transition-all duration-300 hover:text-blue-800"
                     >
                         Pricing
-                    </a>
+                    </Link>
 
-                    <a
-                        href="/about"
+                    <Link
+                        to="/about"
                         className="text-lg transition-all duration-300 hover:text-blue-800"
                     >
                         How It Works
-                    </a>
+                    </Link>
                 </div>
 
                 {/* Desktop Actions */}
@@ -63,11 +69,17 @@ const Navbar = () => {
                         Post a Job
                     </Button>
 
-                    <Button variant="transparent">
+                    <Button 
+                        variant={isLoginActive ? "ghost" : "transparent"}
+                        onClick={() => navigate("/login")}
+                    >
                         Login
                     </Button>
 
-                    <Button variant="ghost">
+                    <Button 
+                        variant={isRegisterActive ? "ghost" : "transparent"}
+                        onClick={() => navigate("/register")}
+                    >   
                         Sign Up
                     </Button>
 
@@ -99,45 +111,45 @@ const Navbar = () => {
             >
                 <div className="flex flex-col gap-2 px-5 py-4 text-center font-libre">
 
-                    <a
-                        href="/"
+                    <Link
+                        to="/"
                         onClick={() => setIsMenuOpen(false)}
                         className="rounded-lg px-4 py-3 text-base transition hover:bg-blue-50 hover:text-blue-800"
                     >
                         Home
-                    </a>
+                    </Link>
 
-                    <a
-                        href="/freelancers"
+                    <Link
+                        to="/freelancers"
                         onClick={() => setIsMenuOpen(false)}
                         className="rounded-lg px-4 py-3 text-base transition hover:bg-blue-50 hover:text-blue-800"
                     >
                         Explore
-                    </a>
+                    </Link>
 
-                    <a
-                        href="/projects"
+                    <Link
+                        to="/projects"
                         onClick={() => setIsMenuOpen(false)}
                         className="rounded-lg px-4 py-3 text-base transition hover:bg-blue-50 hover:text-blue-800"
                     >
                         Talents
-                    </a>
+                    </Link>
 
-                    <a
-                        href="/services"
+                    <Link
+                        to="/services"
                         onClick={() => setIsMenuOpen(false)}
                         className="rounded-lg px-4 py-3 text-base transition hover:bg-blue-50 hover:text-blue-800"
                     >
                         Pricing
-                    </a>
+                    </Link>
 
-                    <a
-                        href="/about"
+                    <Link
+                        to="/about"
                         onClick={() => setIsMenuOpen(false)}
                         className="rounded-lg px-4 py-3 text-base transition hover:bg-blue-50 hover:text-blue-800"
                     >
                         How It Works
-                    </a>
+                    </Link>
 
                     {/* Mobile & Tablet Buttons */}
                     <div className="flex flex-col items-center gap-3 border-t border-gray-100 pt-4">
@@ -145,11 +157,23 @@ const Navbar = () => {
                             Post a Job
                         </Button>
 
-                        <Button variant="transparent">
+                        <Button
+                            variant={isLoginActive ? "ghost" : "transparent"}
+                            onClick={() => {
+                                navigate("/login");
+                                setIsMenuOpen(false);
+                            }}
+                        >
                             Login
                         </Button>
 
-                        <Button variant="ghost">
+                        <Button 
+                            variant={isRegisterActive ? "ghost" : "transparent"} 
+                            onClick={() => { 
+                                navigate("/register"); 
+                                setIsMenuOpen(false); 
+                            }}
+                        >
                             Sign Up
                         </Button>
                     </div>
