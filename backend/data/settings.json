@@ -13,5 +13,35 @@
     "language": "en",
     "createdAt": "2026-09-04T20:47:34.513Z",
     "updatedAt": "2026-09-04T20:47:34.513Z"
+  },
+  {
+    "id": "7439cc3f-04c4-4486-bad1-0e35beca3217",
+    "userId": "a71fee2f-7902-4509-af48-26b9733a8743",
+    "notifications": {
+      "messages": true,
+      "proposals": true,
+      "projects": true,
+      "payments": true,
+      "marketing": false
+    },
+    "timezone": "UTC",
+    "language": "en",
+    "createdAt": "2026-09-04T21:58:38.838Z",
+    "updatedAt": "2026-09-04T21:58:38.838Z"
+  },
+  {
+    "id": "596f2301-4fa6-46e4-a61c-f5da6618173e",
+    "userId": "a8938c64-ebe5-42a7-b816-3e29f996b0af",
+    "notifications": {
+      "messages": true,
+      "proposals": true,
+      "projects": true,
+      "payments": true,
+      "marketing": false
+    },
+    "timezone": "UTC",
+    "language": "en",
+    "createdAt": "2026-09-04T22:08:58.058Z",
+    "updatedAt": "2026-09-04T22:08:58.058Z"
   }
 ]

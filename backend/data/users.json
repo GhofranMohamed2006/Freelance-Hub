@@ -14,5 +14,37 @@
     "skills": [],
     "createdAt": "2026-09-04T20:47:34.512Z",
     "updatedAt": "2026-09-04T20:47:34.512Z"
+  },
+  {
+    "id": "a71fee2f-7902-4509-af48-26b9733a8743",
+    "firstName": "",
+    "lastName": "",
+    "name": "meram amr",
+    "email": "meramamr18@gmail.com",
+    "passwordHash": "$2a$12$z46W07012VlHIGMS8qglAuG.96mUIRKPoE6xSgmE7ff6R0pOKdmKK",
+    "role": "freelancer",
+    "avatar": "",
+    "bio": "",
+    "location": "",
+    "hourlyRate": 0,
+    "skills": [],
+    "createdAt": "2026-09-04T21:58:38.835Z",
+    "updatedAt": "2026-09-04T21:58:38.835Z"
+  },
+  {
+    "id": "a8938c64-ebe5-42a7-b816-3e29f996b0af",
+    "firstName": "",
+    "lastName": "",
+    "name": "meram amr",
+    "email": "meramamr@gmail.com",
+    "passwordHash": "$2a$12$QjvHHyt9lt0v1YTR/X0FKuxWiyIOn262Hsw9cnIa2v3BPvrVDdrmW",
+    "role": "client",
+    "avatar": "",
+    "bio": "",
+    "location": "",
+    "hourlyRate": 0,
+    "skills": [],
+    "createdAt": "2026-09-04T22:08:58.056Z",
+    "updatedAt": "2026-09-04T22:08:58.056Z"
   }
 ]
