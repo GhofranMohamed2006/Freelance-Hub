@@ -115,7 +115,7 @@ const Register = () => {
 
                 {/* Register Section */}
                 <main className="flex min-h-[calc(100vh-80px)] items-center justify-center px-4 py-8 sm:px-6 sm:py-12">
-                    <div className="w-full max-w-md rounded-lg bg-white p-5 shadow-md sm:p-8">
+                    <div className="w-full max-w-lg rounded-lg bg-white p-5 shadow-md sm:p-8">
                         {/* Heading */}
                         <div className="mb-8 text-center font-lora">
                             <h1 className="text-2xl font-bold sm:text-3xl">                                Create your account
