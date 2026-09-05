@@ -58,5 +58,80 @@
     "language": "en",
     "createdAt": "2026-09-05T00:30:07.160Z",
     "updatedAt": "2026-09-05T00:30:07.160Z"
+  },
+  {
+    "id": "d8ab819f-0616-4d40-8222-a1372387addf",
+    "userId": "2bb611fb-9066-4218-852d-582fff100936",
+    "notifications": {
+      "messages": true,
+      "proposals": true,
+      "projects": true,
+      "payments": true,
+      "marketing": false
+    },
+    "timezone": "UTC",
+    "language": "en",
+    "createdAt": "2026-09-05T14:47:30.693Z",
+    "updatedAt": "2026-09-05T14:47:30.693Z"
+  },
+  {
+    "id": "02be8acd-b8a0-4296-8efd-83eb773366a4",
+    "userId": "6e5c810a-0dd2-444c-8810-706843cc4ad8",
+    "notifications": {
+      "messages": true,
+      "proposals": true,
+      "projects": true,
+      "payments": true,
+      "marketing": false
+    },
+    "timezone": "UTC",
+    "language": "en",
+    "createdAt": "2026-09-05T14:53:28.706Z",
+    "updatedAt": "2026-09-05T14:53:28.706Z"
+  },
+  {
+    "id": "6cb0735c-52ef-4346-8376-0bc619ae7fe6",
+    "userId": "b21a8b1d-a67d-41cd-924a-514b4430b84d",
+    "notifications": {
+      "messages": true,
+      "proposals": true,
+      "projects": true,
+      "payments": true,
+      "marketing": false
+    },
+    "timezone": "UTC",
+    "language": "en",
+    "createdAt": "2026-09-05T14:55:24.899Z",
+    "updatedAt": "2026-09-05T14:55:24.899Z"
+  },
+  {
+    "id": "9623dc61-ad0e-4df4-ac26-629a9e4b020b",
+    "userId": "0faaedc2-83ee-4b4b-bc71-670bea408475",
+    "notifications": {
+      "messages": true,
+      "proposals": true,
+      "projects": true,
+      "payments": true,
+      "marketing": false
+    },
+    "timezone": "UTC",
+    "language": "en",
+    "createdAt": "2026-09-05T14:58:06.718Z",
+    "updatedAt": "2026-09-05T14:58:06.718Z"
+  },
+  {
+    "id": "5d28d10a-f63d-45a6-8aa2-5a249a2697c5",
+    "userId": "6ad8e9b3-ac65-44d4-bac0-5c2a86032841",
+    "notifications": {
+      "messages": true,
+      "proposals": true,
+      "projects": true,
+      "payments": true,
+      "marketing": false
+    },
+    "timezone": "UTC",
+    "language": "en",
+    "createdAt": "2026-09-05T15:26:43.356Z",
+    "updatedAt": "2026-09-05T15:26:43.356Z"
   }
 ]
