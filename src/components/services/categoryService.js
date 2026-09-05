@@ -11,7 +11,5 @@ const categoryApi = axios.create({
 export const getCategories = async () => {
   const response = await categoryApi.get("/categories");
 
-  console.log("Categories response:", response.data);
-
   return response.data;
 };

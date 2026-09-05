@@ -10,7 +10,7 @@ export default function SearchSection({
   error,
 }) {
   return (
-    <div className="relative z-20 mx-auto w-[calc(100%-40px)] mb-[50px] max-w-[1280px] translate-y-6">
+    <div className="relative z-20 mx-auto w-[calc(100%-40px)] mt-[-120px] max-w-[1280px] translate-y-6">
       <form
         onSubmit={(e) => {
           e.preventDefault();
