@@ -33,6 +33,8 @@ export const AuthProvider = ({ children }) => {
     return data;
   };
 
+  
+
   const login = async (email, password) => {
     const response = await loginUser({
       email,
