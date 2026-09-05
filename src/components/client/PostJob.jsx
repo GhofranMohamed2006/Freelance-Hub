@@ -1,5 +1,3 @@
-import Navbar from "../navbar/Navbar";
-
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -145,7 +143,6 @@ function PostJob() {
 
     return (
         <div className="min-h-screen">
-            <Navbar />
 
             <div className="min-h-screen bg-linear-to-br from-purple-100 via-white to-purple-50 px-4 py-10 sm:px-6">
                 <div className="mx-auto max-w-3xl">

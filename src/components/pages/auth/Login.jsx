@@ -1,5 +1,3 @@
-import Navbar from "../../navbar/Navbar";
-
 import { useState } from "react";
 
 import { Link, useNavigate } from "react-router-dom";
@@ -123,7 +121,6 @@ const Login = () => {
 
     return (
         <div className="min-h-screen">
-            <Navbar />
 
             <div className="min-h-screen bg-linear-to-br from-purple-100 via-white to-purple-50">
                 <main className="flex min-h-[calc(100vh-80px)] items-center justify-center px-4 py-8 sm:px-6 sm:py-12">
