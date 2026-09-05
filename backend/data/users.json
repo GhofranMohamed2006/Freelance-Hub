@@ -46,5 +46,21 @@
     "skills": [],
     "createdAt": "2026-09-04T22:08:58.056Z",
     "updatedAt": "2026-09-04T22:08:58.056Z"
+  },
+  {
+    "id": "cc76252e-d7bd-40c9-93f4-d6f84afd89cc",
+    "firstName": "",
+    "lastName": "",
+    "name": "Ghofran Mohamed Saad",
+    "email": "mghofran88@gmail.com",
+    "passwordHash": "$2a$12$b1oWy73qt42Bw7FUoz5BYOjteY10DZHoDeG5awCErh7q4MptOOpDW",
+    "role": "client",
+    "avatar": "",
+    "bio": "",
+    "location": "",
+    "hourlyRate": 0,
+    "skills": [],
+    "createdAt": "2026-09-05T00:30:07.158Z",
+    "updatedAt": "2026-09-05T00:30:07.158Z"
   }
 ]

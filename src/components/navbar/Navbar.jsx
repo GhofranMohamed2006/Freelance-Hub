@@ -65,7 +65,10 @@ const Navbar = () => {
 
                 {/* Desktop Actions */}
                 <div className="hidden items-center gap-3 lg:flex">
-                    <Button variant="primary">
+                    <Button 
+                        variant="primary"
+                        onClick={() => navigate("/post-job")}
+                    >
                         Post a Job
                     </Button>
 
@@ -153,7 +156,13 @@ const Navbar = () => {
 
                     {/* Mobile & Tablet Buttons */}
                     <div className="flex flex-col items-center gap-3 border-t border-gray-100 pt-4">
-                        <Button variant="primary">
+                        <Button 
+                            variant="primary"
+                            onClick={() => {
+                                navigate("/post-job");
+                                setIsMenuOpen(false);
+                            }}
+                        >
                             Post a Job
                         </Button>
 
