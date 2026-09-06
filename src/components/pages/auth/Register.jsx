@@ -8,7 +8,7 @@ import { FiEye, FiEyeOff } from "react-icons/fi";
 import { FiArrowRight } from "react-icons/fi";
 import googleIcon from "../../../assets/icons/google.webp";
 import githubIcon from "../../../assets/icons/github.webp";
-import {  useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 const Register = () => {
     const [role, setRole] = useState("");
@@ -87,7 +87,20 @@ const Register = () => {
         if (!formData.password) {
             newErrors.password = "Password is required";
         } else if (formData.password.length < 8) {
-            newErrors.password = "Password must be at least 8 characters";
+            newErrors.password =
+                "Password must be at least 8 characters";
+        } else if (!/[A-Z]/.test(formData.password)) {
+            newErrors.password =
+                "Password must contain at least one uppercase letter";
+        } else if (!/[a-z]/.test(formData.password)) {
+            newErrors.password =
+                "Password must contain at least one lowercase letter";
+        } else if (!/[0-9]/.test(formData.password)) {
+            newErrors.password =
+                "Password must contain at least one number";
+        } else if (!/[!@#$%^&*(),.?":{}|<>_\-\\[\]/'`~+=;]/.test(formData.password)) {
+            newErrors.password =
+                "Password must contain at least one special character";
         }
 
         if (!formData.confirmPassword) {
@@ -273,6 +286,7 @@ const Register = () => {
                                     </button>
                                 </div>
                             </div>
+
                             {errors.password && (
                                 <div className="mt-3 w-full rounded-lg border border-red-200 bg-red-50 px-4 py-2 text-center">
                                     <p className="text-xs font-lora font-medium text-red-500">
@@ -319,7 +333,60 @@ const Register = () => {
                                     </p>
                                 </div>
                             )}
+                            <div className="mt-3 space-y-1">
+                                <p className="text-xs font-medium text-gray-500">
+                                    Password must contain:
+                                </p>
 
+                                <div className="grid grid-cols-1 gap-1 sm:grid-cols-2">
+                                    <p
+                                        className={`text-xs ${formData.password.length >= 8
+                                                ? "text-green-600"
+                                                : "text-gray-400"
+                                            }`}
+                                    >
+                                        ✓ At least 8 characters
+                                    </p>
+
+                                    <p
+                                        className={`text-xs ${/[A-Z]/.test(formData.password)
+                                                ? "text-green-600"
+                                                : "text-gray-400"
+                                            }`}
+                                    >
+                                        ✓ One uppercase letter
+                                    </p>
+
+                                    <p
+                                        className={`text-xs ${/[a-z]/.test(formData.password)
+                                                ? "text-green-600"
+                                                : "text-gray-400"
+                                            }`}
+                                    >
+                                        ✓ One lowercase letter
+                                    </p>
+
+                                    <p
+                                        className={`text-xs ${/[0-9]/.test(formData.password)
+                                                ? "text-green-600"
+                                                : "text-gray-400"
+                                            }`}
+                                    >
+                                        ✓ One number
+                                    </p>
+
+                                    <p
+                                        className={`text-xs ${/[!@#$%^&*(),.?":{}|<>_\-\\[\]/'`~+=;]/.test(
+                                            formData.password
+                                        )
+                                                ? "text-green-600"
+                                                : "text-gray-400"
+                                            }`}
+                                    >
+                                        ✓ One special character
+                                    </p>
+                                </div>
+                            </div>
 
                             {/* Terms of Service */}
 

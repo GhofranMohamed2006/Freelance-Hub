@@ -122,9 +122,8 @@ const Navbar = () => {
 
       {/* Mobile & Tablet Menu */}
       <div
-        className={`overflow-hidden border-t border-gray-100 transition-all duration-300 lg:hidden ${
-          isMenuOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
-        }`}
+        className={`overflow-hidden border-t border-gray-100 transition-all duration-300 lg:hidden ${isMenuOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
+          }`}
       >
         <div className="flex flex-col gap-2 px-5 py-4 text-center font-libre">
           <Link
