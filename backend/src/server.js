@@ -34,6 +34,7 @@ app.use("/api/payments", require("./routes/payments.routes"));
 app.use("/api/categories", require("./routes/categories.routes"));
 app.use("/api/settings", require("./routes/settings.routes"));
 app.use("/api/uploads", require("./routes/uploads.routes"));
+app.use("/api/client", require("./routes/client.routes"));
 
 app.use(notFound);
 app.use(errorHandler);
