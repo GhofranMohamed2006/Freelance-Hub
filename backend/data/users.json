@@ -142,5 +142,21 @@
     "skills": [],
     "createdAt": "2026-09-05T15:26:43.355Z",
     "updatedAt": "2026-09-05T15:26:43.355Z"
+  },
+  {
+    "id": "4f3b79e7-6821-456e-b01a-c0e867a87e73",
+    "firstName": "",
+    "lastName": "",
+    "name": "meram amr",
+    "email": "meramamr11@gmail.com",
+    "passwordHash": "$2a$12$Xe0cDUjZ0/SRyRjXpMsd4.e7BkyiKNCISbdebvJFVlVP2AFY8DVta",
+    "role": "client",
+    "avatar": "",
+    "bio": "",
+    "location": "",
+    "hourlyRate": 0,
+    "skills": [],
+    "createdAt": "2026-09-06T13:10:31.503Z",
+    "updatedAt": "2026-09-06T13:10:31.503Z"
   }
 ]
