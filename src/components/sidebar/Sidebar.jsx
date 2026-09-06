@@ -12,10 +12,16 @@ import {
     FiBriefcase,
     FiFileText,
     FiX,
+    FiHome,
 } from "react-icons/fi";
 
 const navByRole = {
     client: [
+        {
+            to: "/",
+            label: "home",
+            icon: FiHome,
+        },
         {
             to: "/client-dashboard",
             label: "Dashboard",

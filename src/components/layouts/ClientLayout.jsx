@@ -18,8 +18,8 @@ const ClientLayout = () => {
             {/* Mobile / Tablet Sidebar */}
             <aside
                 className={`fixed left-0 top-0 z-[60] h-screen w-72 max-w-[85vw] border-r border-gray-200 bg-white shadow-xl transition-transform duration-300 ease-in-out lg:hidden ${sidebarOpen
-                        ? "translate-x-0"
-                        : "-translate-x-full"
+                    ? "translate-x-0"
+                    : "-translate-x-full"
                     }`}
             >
                 <Sidebar

@@ -129,7 +129,7 @@ function PostJob() {
 
             alert(
                 error.response?.data?.message ||
-                    "Something went wrong. Please try again."
+                "Something went wrong. Please try again."
             );
         } finally {
             setLoading(false);
@@ -144,7 +144,7 @@ function PostJob() {
     return (
         <div className="min-h-screen">
 
-            <div className="min-h-screen bg-linear-to-br from-purple-100 via-white to-purple-50 px-4 py-10 sm:px-6">
+            <div className="min-h-screen px-4 py-10 sm:px-6">
                 <div className="mx-auto max-w-3xl">
 
                     {/* Header */}
@@ -181,11 +181,10 @@ function PostJob() {
                                 value={formData.title}
                                 onChange={handleChange}
                                 placeholder="e.g. Build a React Website"
-                                className={`w-full rounded-lg border bg-white px-4 py-3 text-gray-700 outline-none transition placeholder:text-gray-400 ${
-                                    errors.title
-                                        ? "border-red-500"
-                                        : "border-gray-200 focus:border-blue-500"
-                                }`}
+                                className={`w-full rounded-lg border bg-white px-4 py-3 text-gray-700 outline-none transition placeholder:text-gray-400 ${errors.title
+                                    ? "border-red-500"
+                                    : "border-gray-200 focus:border-blue-500"
+                                    }`}
                             />
 
                             {errors.title && (
@@ -213,11 +212,10 @@ function PostJob() {
                                 value={formData.category}
                                 onChange={handleChange}
                                 disabled={loadingCategories}
-                                className={`w-full rounded-lg border bg-white px-4 py-3 text-gray-700 outline-none transition ${
-                                    errors.category
-                                        ? "border-red-500"
-                                        : "border-gray-200 focus:border-blue-500"
-                                }`}
+                                className={`w-full rounded-lg border bg-white px-4 py-3 text-gray-700 outline-none transition ${errors.category
+                                    ? "border-red-500"
+                                    : "border-gray-200 focus:border-blue-500"
+                                    }`}
                             >
                                 <option value="">
                                     {loadingCategories
@@ -261,11 +259,10 @@ function PostJob() {
                                 onChange={handleChange}
                                 rows={6}
                                 placeholder="Describe your project, requirements, and expectations..."
-                                className={`w-full resize-none rounded-lg border bg-white px-4 py-3 text-gray-700 outline-none transition placeholder:text-gray-400 ${
-                                    errors.description
-                                        ? "border-red-500"
-                                        : "border-gray-200 focus:border-blue-500"
-                                }`}
+                                className={`w-full resize-none rounded-lg border bg-white px-4 py-3 text-gray-700 outline-none transition placeholder:text-gray-400 ${errors.description
+                                    ? "border-red-500"
+                                    : "border-gray-200 focus:border-blue-500"
+                                    }`}
                             />
 
                             {errors.description && (
@@ -330,11 +327,10 @@ function PostJob() {
                                         onChange={handleChange}
                                         min="0"
                                         placeholder="Maximum Budget"
-                                        className={`w-full rounded-lg border bg-white px-4 py-3 text-gray-700 outline-none transition placeholder:text-gray-400 ${
-                                            errors.maxBudget
-                                                ? "border-red-500"
-                                                : "border-gray-200 focus:border-blue-500"
-                                        }`}
+                                        className={`w-full rounded-lg border bg-white px-4 py-3 text-gray-700 outline-none transition placeholder:text-gray-400 ${errors.maxBudget
+                                            ? "border-red-500"
+                                            : "border-gray-200 focus:border-blue-500"
+                                            }`}
                                     />
 
                                     {errors.maxBudget && (
@@ -363,11 +359,10 @@ function PostJob() {
                                 name="duration"
                                 value={formData.duration}
                                 onChange={handleChange}
-                                className={`w-full rounded-lg border bg-white px-4 py-3 text-gray-700 outline-none transition ${
-                                    errors.duration
-                                        ? "border-red-500"
-                                        : "border-gray-200 focus:border-blue-500"
-                                }`}
+                                className={`w-full rounded-lg border bg-white px-4 py-3 text-gray-700 outline-none transition ${errors.duration
+                                    ? "border-red-500"
+                                    : "border-gray-200 focus:border-blue-500"
+                                    }`}
                             >
                                 <option value="">Select Duration</option>
                                 <option value="less-than-week">
