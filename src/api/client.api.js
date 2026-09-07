@@ -1,54 +1,46 @@
-const API_URL = "http://localhost:5000/api";
+const API_URL = "/api";
 
 export const getClientDashboard = async () => {
-    const token = localStorage.getItem("lynk_token");
+  const token = localStorage.getItem("lynk_token");
 
-    const response = await fetch(`${API_URL}/client/dashboard`, {
-        method: "GET",
-        headers: {
-            Authorization: `Bearer ${token}`,
-        },
-    });
+  const response = await fetch(`${API_URL}/client/dashboard`, {
+    method: "GET",
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
 
-    const data = await response.json();
+  const data = await response.json();
 
-    if (!response.ok) {
-        throw new Error(
-            data.message || "Failed to load dashboard"
-        );
-    }
+  if (!response.ok) {
+    throw new Error(data.message || data.error || "Failed to load dashboard");
+  }
 
-    return data;
+  return data;
 };
 
-export const updateMilestone = async (
-    projectId,
-    milestoneId,
-    status
-) => {
-    const token = localStorage.getItem("lynk_token");
+export const updateMilestone = async (projectId, milestoneId, status) => {
+  const token = localStorage.getItem("lynk_token");
 
-    const response = await fetch(
-        `${API_URL}/projects/${projectId}/milestones/${milestoneId}`,
-        {
-            method: "PATCH",
-            headers: {
-                "Content-Type": "application/json",
-                Authorization: `Bearer ${token}`,
-            },
-            body: JSON.stringify({
-                status,
-            }),
-        }
-    );
+  const response = await fetch(
+    `${API_URL}/projects/${projectId}/milestones/${milestoneId}`,
+    {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({
+        status,
+      }),
+    },
+  );
 
-    const data = await response.json();
+  const data = await response.json();
 
-    if (!response.ok) {
-        throw new Error(
-            data.message || "Failed to update milestone"
-        );
-    }
+  if (!response.ok) {
+    throw new Error(data.message || data.error || "Failed to update milestone");
+  }
 
-    return data;
+  return data;
 };
