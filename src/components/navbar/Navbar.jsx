@@ -111,12 +111,22 @@ const Navbar = () => {
             <Button onClick={handlerlogout}>Logout</Button>
           )}
 
-          <UserIcon />
+          <Link
+            to="/settings"
+            className="rounded-lg p-2 text-gray-700 transition hover:bg-gray-100"
+          >
+            <UserIcon />
+          </Link>
         </div>
 
         {/* Mobile & Tablet Actions */}
         <div className="flex items-center gap-2 lg:hidden">
-          <UserIcon />
+          <Link
+            to="/settings"
+            className="rounded-lg p-2 text-gray-700 transition hover:bg-gray-100"
+          >
+            <UserIcon />
+          </Link>
 
           <button
             type="button"
