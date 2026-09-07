@@ -89,15 +89,22 @@ const Login = () => {
 
       // Go to Dashboard
       // navigate("/dashboard");
-      navigate("/client-dashboard"); // مؤقتا
+      if (data.user.role === "freelancer") {
+        navigate("/freelancer/dashboard");
+      } else if (data.user.role === "client") {
+        navigate("/client-dashboard");
+      } else {
+        navigate("/");
+      }
+      // مؤقتا
       window.location.reload(); // مؤقتا
     } catch (err) {
       console.error("Login Error:", err);
 
       setServerError(
         err.response?.data?.message ||
-        err.response?.data?.error ||
-        "Invalid email or password",
+          err.response?.data?.error ||
+          "Invalid email or password",
       );
     } finally {
       setIsSubmitting(false);
@@ -135,8 +142,9 @@ const Login = () => {
                     value={formData.email}
                     onChange={handleChange}
                     placeholder="alex.morgan@example.com"
-                    className={`w-full rounded-lg border px-4 py-3 pl-10 text-gray-700 outline-none transition ${errors.email ? "border-red-500" : "border-gray-200"
-                      }`}
+                    className={`w-full rounded-lg border px-4 py-3 pl-10 text-gray-700 outline-none transition ${
+                      errors.email ? "border-red-500" : "border-gray-200"
+                    }`}
                   />
                 </div>
 
@@ -164,8 +172,9 @@ const Login = () => {
                     value={formData.password}
                     onChange={handleChange}
                     placeholder="Enter your password"
-                    className={`w-full rounded-lg border px-4 py-3 pl-10 pr-10 text-gray-700 outline-none transition ${errors.password ? "border-red-500" : "border-gray-200"
-                      }`}
+                    className={`w-full rounded-lg border px-4 py-3 pl-10 pr-10 text-gray-700 outline-none transition ${
+                      errors.password ? "border-red-500" : "border-gray-200"
+                    }`}
                   />
 
                   <button

@@ -9,6 +9,7 @@ import {
   FileText,
   Wallet,
   UserRound,
+  HomeIcon,
 } from "lucide-react";
 
 import { getMe } from "../../api/auth.api.js";
@@ -40,6 +41,7 @@ const FreelancerSidebar = ({ onNavigate }) => {
   }, []);
 
   const links = [
+    { name: "Home", path: "/", icon: HomeIcon },
     { name: "Dashboard", path: "/freelancer/dashboard", icon: LayoutDashboard },
     { name: "Find Work", path: "/find-work", icon: Search },
     {
