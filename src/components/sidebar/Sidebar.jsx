@@ -33,8 +33,8 @@ const navByRole = {
             icon: FiEdit3,
         },
         {
-            to: "/find-services",
-            label: "Find Services",
+            to: "/find-talents",
+            label: "Find Talents",
             icon: FiSearch,
         },
         {

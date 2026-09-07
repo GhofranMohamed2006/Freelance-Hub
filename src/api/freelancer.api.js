@@ -1,10 +1,14 @@
 import api from "./axios.js";
 
-export const getFreelancers = async (search = "") => {
+export const getFreelancers = async (
+  search = "",
+  category = ""
+) => {
   const response = await api.get("/users", {
     params: {
       role: "freelancer",
       search,
+      category,
     },
   });
 
@@ -59,5 +63,10 @@ export const updatePublicProfile = async (id, updatedData) => {
 
 export const getFreelancerProjects = async () => {
   const response = await api.get("/freelancer/projects");
+  return response.data;
+};
+
+export const getCategories = async () => {
+  const response = await api.get("/categories");
   return response.data;
 };

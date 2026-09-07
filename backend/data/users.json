@@ -1,53 +1,5 @@
 [
   {
-    "id": "e735f483-ffbf-4ac5-acf5-53642900f85d",
-    "firstName": "",
-    "lastName": "",
-    "name": "meram amr",
-    "email": "meramamr8@gmail.com",
-    "passwordHash": "$2a$12$ZVF2WdBdK0sYw/xQtNttCOP/MEmz9k0oFcM1qo2zzoogcy4j1u9j6",
-    "role": "client",
-    "avatar": "",
-    "bio": "",
-    "location": "",
-    "hourlyRate": 0,
-    "skills": [],
-    "createdAt": "2026-09-04T20:47:34.512Z",
-    "updatedAt": "2026-09-04T20:47:34.512Z"
-  },
-  {
-    "id": "a71fee2f-7902-4509-af48-26b9733a8743",
-    "firstName": "",
-    "lastName": "",
-    "name": "meram amr",
-    "email": "meramamr18@gmail.com",
-    "passwordHash": "$2a$12$z46W07012VlHIGMS8qglAuG.96mUIRKPoE6xSgmE7ff6R0pOKdmKK",
-    "role": "freelancer",
-    "avatar": "",
-    "bio": "",
-    "location": "",
-    "hourlyRate": 0,
-    "skills": [],
-    "createdAt": "2026-09-04T21:58:38.835Z",
-    "updatedAt": "2026-09-04T21:58:38.835Z"
-  },
-  {
-    "id": "a8938c64-ebe5-42a7-b816-3e29f996b0af",
-    "firstName": "",
-    "lastName": "",
-    "name": "meram amr",
-    "email": "meramamr@gmail.com",
-    "passwordHash": "$2a$12$QjvHHyt9lt0v1YTR/X0FKuxWiyIOn262Hsw9cnIa2v3BPvrVDdrmW",
-    "role": "client",
-    "avatar": "",
-    "bio": "",
-    "location": "",
-    "hourlyRate": 0,
-    "skills": [],
-    "createdAt": "2026-09-04T22:08:58.056Z",
-    "updatedAt": "2026-09-04T22:08:58.056Z"
-  },
-  {
     "id": "cc76252e-d7bd-40c9-93f4-d6f84afd89cc",
     "firstName": "",
     "lastName": "",
@@ -192,5 +144,21 @@
     "skills": [],
     "createdAt": "2026-09-06T22:10:29.589Z",
     "updatedAt": "2026-09-06T22:10:29.589Z"
+  },
+  {
+    "id": "17055aa0-7264-47a9-8062-d5730b751f31",
+    "firstName": "",
+    "lastName": "",
+    "name": "meram amr",
+    "email": "meramamr18@gmail.com",
+    "passwordHash": "$2a$12$pA7aieWz76njyhWuTXETAenijGSiOysI.cNQ44hj.pwF6Kyclndra",
+    "role": "freelancer",
+    "avatar": "",
+    "bio": "",
+    "location": "",
+    "hourlyRate": 0,
+    "skills": [],
+    "createdAt": "2026-09-07T13:56:20.188Z",
+    "updatedAt": "2026-09-07T13:56:20.188Z"
   }
 ]

@@ -6,6 +6,8 @@ import ProtectedRoute from "./components/routes/ProtectedRoute";
 
 import PostJob from "./components/client/PostJob";
 import ClientDashboard from "./components/client/ClientDashboard";
+import FindTalent from "./components/client/FindTalent";
+
 import Register from "./components/pages/auth/Register";
 import Login from "./components/pages/auth/Login";
 import Home from "./components/pages/public/Home";
@@ -25,10 +27,10 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route
-            path="/freelancer/:id"
-            element={<FreelancerProfile />}
-          />
-      <Route path="/settings" element={<AccountSettings />} />
+          path="/freelancer/:id"
+          element={<FreelancerProfile />}
+        />
+        <Route path="/settings" element={<AccountSettings />} />
       </Route>
 
 
@@ -37,10 +39,11 @@ function App() {
         <Route element={<ClientLayout />}>
           <Route path="/client-dashboard" element={<ClientDashboard />} />
           <Route path="/post-job" element={<PostJob />} />
+          <Route path="/find-talents" element={<FindTalent />} />
         </Route>
       </Route>
 
-      
+
 
       <Route element={<ProtectedRoute allowedRoles={["freelancer"]} />}>
         <Route element={<FreelancerLayout />}>
