@@ -19,6 +19,10 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
+        <Route
+            path="/freelancer/:id"
+            element={<FreelancerProfile />}
+          />
       </Route>
 
       {/* Protected pages - client role only */}
@@ -26,10 +30,6 @@ function App() {
         <Route element={<ClientLayout />}>
           <Route path="/client-dashboard" element={<ClientDashboard />} />
           <Route path="/post-job" element={<PostJob />} />
-          <Route
-            path="/freelancer/:id"
-            element={<FreelancerProfile />}
-          />
         </Route>
       </Route>
     </Routes>

@@ -9,16 +9,23 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
-  const [logged, setLoggedIn] = useState(
-    localStorage.getItem("lynk_token") ? true : false,
-  );
-  const { logout } = useAuth();
+
+  const { user, logout } = useAuth();
+  
+  const logged = Boolean(user || localStorage.getItem("lynk_token"));
+  const userId = user?._id || user?.id;
 
   const handlerlogout = () => {
     logout();
-    setLoggedIn(false);
-
     navigate("/");
+  };
+
+  const handleProfileNavigate = () => {
+    if (user?.role === "freelancer" && userId) {
+      navigate(`/freelancer/${userId}`);
+    } else {
+      navigate("/client/profile");
+    }
   };
 
   const isLoginActive = location.pathname === "/login";
@@ -79,7 +86,7 @@ const Navbar = () => {
           </Button>
 
           {logged ? (
-            <Button variant="ghost" onClick={() => navigate("/profile")}>
+            <Button variant="ghost" onClick={handleProfileNavigate}>
               Profile
             </Button>
           ) : (
@@ -91,7 +98,7 @@ const Navbar = () => {
             </Button>
           )}
 
-          {logged ? null : (
+          {!logged && (
             <Button
               variant={isRegisterActive ? "ghost" : "transparent"}
               onClick={() => navigate("/register")}
@@ -99,9 +106,10 @@ const Navbar = () => {
               Sign Up
             </Button>
           )}
-          {logged ? (
-            <Button onClick={() => handlerlogout()}>Logout</Button>
-          ) : null}
+
+          {logged && (
+            <Button onClick={handlerlogout}>Logout</Button>
+          )}
 
           <UserIcon />
         </div>
@@ -122,8 +130,9 @@ const Navbar = () => {
 
       {/* Mobile & Tablet Menu */}
       <div
-        className={`overflow-hidden border-t border-gray-100 transition-all duration-300 lg:hidden ${isMenuOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
-          }`}
+        className={`overflow-hidden border-t border-gray-100 transition-all duration-300 lg:hidden ${
+          isMenuOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
+        }`}
       >
         <div className="flex flex-col gap-2 px-5 py-4 text-center font-libre">
           <Link
@@ -178,7 +187,17 @@ const Navbar = () => {
               Post a Job
             </Button>
 
-            {logged ? null : (
+            {logged ? (
+              <Button
+                variant="ghost"
+                onClick={() => {
+                  handleProfileNavigate();
+                  setIsMenuOpen(false);
+                }}
+              >
+                Profile
+              </Button>
+            ) : (
               <Button
                 variant={isLoginActive ? "ghost" : "transparent"}
                 onClick={() => {
@@ -190,7 +209,7 @@ const Navbar = () => {
               </Button>
             )}
 
-            {logged ? null : (
+            {!logged && (
               <Button
                 variant={isRegisterActive ? "ghost" : "transparent"}
                 onClick={() => {
@@ -202,9 +221,16 @@ const Navbar = () => {
               </Button>
             )}
 
-            {logged ? (
-              <Button onClick={() => handlerlogout()}>Logout</Button>
-            ) : null}
+            {logged && (
+              <Button
+                onClick={() => {
+                  handlerlogout();
+                  setIsMenuOpen(false);
+                }}
+              >
+                Logout
+              </Button>
+            )}
           </div>
         </div>
       </div>

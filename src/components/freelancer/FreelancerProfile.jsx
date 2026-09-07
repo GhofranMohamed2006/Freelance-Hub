@@ -24,7 +24,6 @@ const FreelancerProfile = () => {
         setLoading(true);
         setError(null);
         
-        // استدعاء الدالة المربوطة بالـ Endpoint الصحيح: /users/:id/public-profile
         const data = await getPublicProfile(id);
         
         if (isMounted) {
@@ -73,7 +72,17 @@ const FreelancerProfile = () => {
   return (
     <div className="min-h-screen bg-gray-50/50 py-8 text-gray-800">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <ProfileHeader data={freelancerData} />
+        <ProfileHeader 
+  data={freelancerData} 
+  onUpdateProfile={(updated) => {
+    setFreelancerData((prevData) => ({
+      ...prevData,
+      ...updated,
+      _id: prevData?._id || prevData?.id || updated?._id || updated?.id,
+      id: prevData?._id || prevData?.id || updated?._id || updated?.id,
+    }));
+  }}
+/>
 
         <div className="mt-8 grid grid-cols-1 gap-8 lg:grid-cols-3">
           <div className="space-y-8 lg:col-span-2">
