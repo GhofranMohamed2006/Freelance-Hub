@@ -103,12 +103,22 @@ const Navbar = () => {
             <Button onClick={() => handlerlogout()}>Logout</Button>
           ) : null}
 
-          <UserIcon />
+          <Link
+            to="/settings"
+            className="rounded-lg p-2 text-gray-700 transition hover:bg-gray-100"
+          >
+            <UserIcon />
+          </Link>
         </div>
 
         {/* Mobile & Tablet Actions */}
         <div className="flex items-center gap-2 lg:hidden">
-          <UserIcon />
+          <Link
+            to="/settings"
+            className="rounded-lg p-2 text-gray-700 transition hover:bg-gray-100"
+          >
+            <UserIcon />
+          </Link>
 
           <button
             type="button"
@@ -122,8 +132,9 @@ const Navbar = () => {
 
       {/* Mobile & Tablet Menu */}
       <div
-        className={`overflow-hidden border-t border-gray-100 transition-all duration-300 lg:hidden ${isMenuOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
-          }`}
+        className={`overflow-hidden border-t border-gray-100 transition-all duration-300 lg:hidden ${
+          isMenuOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
+        }`}
       >
         <div className="flex flex-col gap-2 px-5 py-4 text-center font-libre">
           <Link

@@ -10,6 +10,11 @@ import Register from "./components/pages/auth/Register";
 import Login from "./components/pages/auth/Login";
 import Home from "./components/pages/public/Home";
 import FreelancerProfile from "./components/freelancer/FreelancerProfile";
+import FreelancerLayout from "./components/layouts/FreelancerLayout";
+import FreelancerProjectWorkspace from "./components/pages/freelancer/FreelancerProjectWorkspace";
+import FreelancerDashboard from "./components/pages/freelancer/FreelancerDashboard";
+import FreelancerProjects from "./components/pages/freelancer/FreelancerProjects";
+import AccountSettings from "./components/pages/auth/AccountSettings";
 
 function App() {
   return (
@@ -19,7 +24,9 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
+      <Route path="/settings" element={<AccountSettings />} />
       </Route>
+
 
       {/* Protected pages - client role only */}
       <Route element={<ProtectedRoute allowedRoles={["client"]} />}>
@@ -30,6 +37,22 @@ function App() {
             path="/freelancer/:id"
             element={<FreelancerProfile />}
           />
+        </Route>
+      </Route>
+
+      
+
+      <Route element={<ProtectedRoute allowedRoles={["freelancer"]} />}>
+        <Route element={<FreelancerLayout />}>
+          <Route
+            path="/freelancer/dashboard"
+            element={<FreelancerDashboard />}
+          />
+          <Route
+            path="/freelancer/projects/:id"
+            element={<FreelancerProjectWorkspace />}
+          />
+          <Route path="/freelancer/projects" element={<FreelancerProjects />} />
         </Route>
       </Route>
     </Routes>
