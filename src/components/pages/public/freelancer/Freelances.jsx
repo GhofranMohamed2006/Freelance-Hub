@@ -1,8 +1,10 @@
 import { Heart, Search, Star } from "lucide-react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import { SectionHeading } from "../../../navbar/SectionHeading";
 import EmptyState from "../../freelancer/EmptyState";
 import LoadingState from "../../freelancer/LoadingState";
+
 const fadeUp = {
   hidden: { opacity: 0, y: 22 },
   visible: {
@@ -169,6 +171,14 @@ export default function Freelancers({
                       </span>
                     )}
                   </div>
+                </div>
+                <div className="mt-2 border-t border-slate-100 pt-2">
+                  <Link
+                    to={`/freelancer/${person._id || person.id}`}
+                    className="block w-full rounded-xl bg-indigo-600 py-2 text-center text-xs font-bold text-white transition hover:bg-indigo-700"
+                  >
+                    View Profile
+                  </Link>
                 </div>
               </motion.article>
             );

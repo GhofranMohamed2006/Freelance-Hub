@@ -9,6 +9,7 @@ import ClientDashboard from "./components/client/ClientDashboard";
 import Register from "./components/pages/auth/Register";
 import Login from "./components/pages/auth/Login";
 import Home from "./components/pages/public/Home";
+import FreelancerProfile from "./components/freelancer/FreelancerProfile";
 
 function App() {
   return (
@@ -25,6 +26,10 @@ function App() {
         <Route element={<ClientLayout />}>
           <Route path="/client-dashboard" element={<ClientDashboard />} />
           <Route path="/post-job" element={<PostJob />} />
+          <Route
+            path="/freelancer/:id"
+            element={<FreelancerProfile />}
+          />
         </Route>
       </Route>
     </Routes>

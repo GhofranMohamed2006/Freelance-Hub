@@ -158,5 +158,21 @@
     "skills": [],
     "createdAt": "2026-09-06T13:10:31.503Z",
     "updatedAt": "2026-09-06T13:10:31.503Z"
+  },
+  {
+    "id": "8a57cf45-6c7e-4b91-b20f-612bdf11cf1d",
+    "firstName": "",
+    "lastName": "",
+    "name": "Ghofran Mohamed",
+    "email": "rawda.m7med.sa3d@gmail.com",
+    "passwordHash": "$2a$12$J/KPdXtY.eUk3bY3qxa5/.15YODPp3omDo2IMEMPndnK3rtESDUBq",
+    "role": "freelancer",
+    "avatar": "",
+    "bio": "",
+    "location": "",
+    "hourlyRate": 0,
+    "skills": [],
+    "createdAt": "2026-09-06T23:54:08.075Z",
+    "updatedAt": "2026-09-06T23:54:08.075Z"
   }
 ]
