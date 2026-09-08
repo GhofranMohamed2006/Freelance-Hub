@@ -1,4 +1,3 @@
-
 import { NavLink } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 
@@ -13,6 +12,7 @@ import {
     FiFileText,
     FiX,
     FiHome,
+    FiInbox, 
 } from "react-icons/fi";
 
 const navByRole = {
@@ -41,6 +41,11 @@ const navByRole = {
             to: "/myjobs",
             label: "My Jobs",
             icon: FiFileText,
+        },
+        {
+            to: "/proposals", 
+            label: "Proposals",
+            icon: FiInbox,
         },
         {
             to: "/ongoingProjects",
@@ -173,4 +178,3 @@ const Sidebar = ({ onNavigate }) => {
 };
 
 export default Sidebar;
-
