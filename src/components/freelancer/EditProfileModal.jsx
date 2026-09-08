@@ -11,8 +11,6 @@ import {
 } from "react-icons/fi";
 
 const EditProfileModal = ({ isOpen, onClose, initialData, onSave }) => {
-  if (!isOpen) return null;
-
   const [activeTab, setActiveTab] = useState("basic");
 
   // Sync state properly if initialData changes
@@ -132,21 +130,27 @@ const EditProfileModal = ({ isOpen, onClose, initialData, onSave }) => {
   };
 
   // Save Form Handler
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = async (e) => {
+  e.preventDefault();
 
-    // نجهز كائن متوافق مع كافة احتمالات المسميات في الباك إند
-    const payload = {
-      ...formData,
-      fullName: formData.name, // دعم الاسم المزدوج
-      bio: formData.about, // دعم الاسم المزدوج
-      jobTitle: formData.title, // دعم الاسم المزدوج
-      portfolio: formData.portfolioList, // إرسال المصفوفة بالاسمين
-    };
-
-    onSave(payload);
-    onClose();
+  const payload = {
+    name: formData.name,
+    title: formData.title,
+    avatar: formData.avatar,
+    bio: formData.about,
+    location: formData.location,
+    skills: formData.skills,
+    certifications: formData.certifications,
+    portfolio: formData.portfolioList,
   };
+
+  try {
+    await onSave(payload);
+    onClose();
+  } catch (error) {
+    console.error("Failed to save profile:", error);
+  }
+};
 
   const tabs = [
     { id: "basic", label: "Basic Info", icon: FiUser },
@@ -155,6 +159,8 @@ const EditProfileModal = ({ isOpen, onClose, initialData, onSave }) => {
     { id: "portfolio", label: "Portfolio", icon: FiBriefcase },
     { id: "certifications", label: "Certifications", icon: FiAward },
   ];
+
+  if (!isOpen) return null;
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4 backdrop-blur-sm">

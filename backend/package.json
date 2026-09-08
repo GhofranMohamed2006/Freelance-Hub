@@ -4,7 +4,7 @@
   "description": "Lynk freelance marketplace API - Express MVC, JWT, JSON storage",
   "main": "src/server.js",
   "scripts": {
-    "dev": "nodemon src/server.js",
+    "dev": "nodemon --watch src src/server.js",
     "start": "node src/server.js"
   },
   "dependencies": {

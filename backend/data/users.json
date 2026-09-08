@@ -113,21 +113,26 @@
   },
   {
     "id": "8a57cf45-6c7e-4b91-b20f-612bdf11cf1d",
-    "firstName": "",
-    "lastName": "",
+    "firstName": "Ghofran",
+    "lastName": "Mohamed",
     "name": "Ghofran Mohamed",
     "email": "rawda.m7med.sa3d@gmail.com",
     "passwordHash": "$2a$12$J/KPdXtY.eUk3bY3qxa5/.15YODPp3omDo2IMEMPndnK3rtESDUBq",
     "role": "freelancer",
     "avatar": "",
-    "bio": "",
-    "location": "",
+    "bio": "Aspiring Full Stack Developer and Data Analysis learner with skills in C++, HTML, CSS, and basic knowledge of Python and SQL. Currently learning JS and building practical projects to grow my skills, Seeking opportunities to apply my knowledge, gain experience, and grow in the tech industry.",
+    "location": "Tanta, Egypt",
     "hourlyRate": 0,
-    "skills": [],
+    "skills": [
+      "HTML",
+      "CSS",
+      "Java Script"
+    ],
     "createdAt": "2026-09-06T23:54:08.075Z",
-    "updatedAt": "2026-09-07T02:43:46.586Z",
+    "updatedAt": "2026-09-08T00:36:42.866Z",
     "certifications": [],
-    "portfolio": []
+    "portfolio": [],
+    "title": "Junior Full Stack Developer"
   },
   {
     "id": "98b21dda-b013-45d6-9870-54ace04b857f",

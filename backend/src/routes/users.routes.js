@@ -9,3 +9,4 @@ router.post("/", requireAuth, c.create);
 router.patch("/:id", requireAuth, c.update);
 router.delete("/:id", requireAuth, c.remove);
 module.exports = router;
+

@@ -39,7 +39,10 @@ const ProfileHeader = ({ data, onUpdateProfile, isOwner: customIsOwner }) => {
 
     const response = await updatePublicProfile(targetId, formData);
 
-    const updatedBackendData = response?.user || response?.data || response;
+    const updatedBackendData =
+      response?.user ||
+      response?.data ||
+      response;
 
     const mergedData = {
       ...data,
@@ -50,9 +53,12 @@ const ProfileHeader = ({ data, onUpdateProfile, isOwner: customIsOwner }) => {
 
     onUpdateProfile?.(mergedData);
 
-    setIsModalOpen(false);
   } catch (error) {
-    console.error("Failed to save profile changes:", error?.response?.data || error);
+    console.error(
+      "Failed to save profile changes:",
+      error?.response?.data || error
+    );
+
     throw error;
   }
 };

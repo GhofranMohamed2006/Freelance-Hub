@@ -19,10 +19,12 @@ export const getFreelancerProject = async (id) => {
   const response = await api.get(`/projects/${id}`);
   return response.data;
 };
+
 export const getFreelancerDashboard = async () => {
   const response = await api.get("/freelancer/dashboard");
   return response.data;
 };
+
 export const getFreelancerPayments = async () => {
   const response = await api.get("/payments");
   return response.data;
@@ -31,7 +33,7 @@ export const getFreelancerPayments = async () => {
 export const updateMilestone = async (projectId, milestoneId, data) => {
   const response = await api.patch(
     `/projects/${projectId}/milestones/${milestoneId}`,
-    data,
+    data
   );
 
   return response.data;
@@ -52,12 +54,12 @@ export const uploadProjectFile = async (file) => {
 };
 
 export const getPublicProfile = async (id) => {
-  const response = await api.get(`http://localhost:5000/api/users/${id}/public-profile`);
+  const response = await api.get(`/users/${id}/public-profile`);
   return response.data;
 };
 
 export const updatePublicProfile = async (id, updatedData) => {
-  const response = await api.patch(`http://localhost:5000/api/users/${id}`, updatedData);
+  const response = await api.patch(`/users/${id}`, updatedData);
   return response.data;
 };
 

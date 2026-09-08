@@ -6,6 +6,7 @@ const fields = [
   "firstName",
   "lastName",
   "name",
+  "title",
   "avatar",
   "bio",
   "location",
