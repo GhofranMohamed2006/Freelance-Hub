@@ -6,23 +6,24 @@ import FreelancerLayout from "./components/layouts/FreelancerLayout";
 import ProtectedRoute from "./components/routes/ProtectedRoute";
 
 // Client Pages
-import PostJob from "./components/client/PostJob";
-import ClientDashboard from "./components/client/ClientDashboard";
-import FindTalent from "./components/client/FindTalent";
-import ProposalsPage from "./components/pages/public/freelancer/ProposalsPage";
+import PostJob from "./pages/client/PostJob";
+import ClientDashboard from "./pages/client/ClientDashboard";
+import FindTalent from "./pages/client/FindTalent";
+import ProposalsPage from "./pages/public/freelancer/ProposalsPage";
 
 // Freelancer Pages
-import FreelancerDashboard from "./components/pages/freelancer/FreelancerDashboard";
-import FreelancerProjects from "./components/pages/freelancer/FreelancerProjects";
-import FreelancerProjectWorkspace from "./components/pages/freelancer/FreelancerProjectWorkspace";
+import FreelancerDashboard from "./pages/freelancer/FreelancerDashboard";
+import FreelancerProjects from "./pages/freelancer/FreelancerProjects";
+import FreelancerProjectWorkspace from "./pages/freelancer/FreelancerProjectWorkspace";
 import FreelancerProfile from "./components/freelancer/FreelancerProfile";
-import SubmitProposalPage from "./components/pages/public/freelancer/ProposalForm";
+import SubmitProposalPage from "./pages/public/freelancer/ProposalForm";
+import FindWork from "./pages/freelancer/FindWork";
 
 // Auth & Public Pages
-import Register from "./components/pages/auth/Register";
-import Login from "./components/pages/auth/Login";
-import Home from "./components/pages/public/Home";
-import AccountSettings from "./components/pages/auth/AccountSettings";
+import Register from "./pages/auth/Register";
+import Login from "./pages/auth/Login";
+import Home from "./pages/public/Home";
+import AccountSettings from "./pages/auth/AccountSettings";
 
 function App() {
   return (
