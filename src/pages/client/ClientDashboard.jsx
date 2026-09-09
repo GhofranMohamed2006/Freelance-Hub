@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 
 import {
     FiBriefcase,
@@ -19,7 +20,31 @@ import {
 } from "../../api/client.api";
 
 import Loader from "../../components/common/Loader";
-import { useAuth } from "../context/AuthContext";
+import { useAuth } from "../../components/context/AuthContext";
+
+const cardVariants = {
+    hidden: {
+        opacity: 0,
+        y: 24,
+    },
+    visible: {
+        opacity: 1,
+        y: 0,
+        transition: {
+            duration: 0.5,
+            ease: "easeOut",
+        },
+    },
+};
+
+const containerVariants = {
+    hidden: {},
+    visible: {
+        transition: {
+            staggerChildren: 0.08,
+        },
+    },
+};
 
 const ClientDashboard = () => {
     const navigate = useNavigate();
@@ -105,8 +130,12 @@ const ClientDashboard = () => {
 
     if (error && !dashboard) {
         return (
-            <div className="min-h-[300px] bg-[#F8F9FC] p-6">
-                <div className="mx-auto flex max-w-2xl flex-col items-center justify-center rounded-xl border border-red-100 bg-white p-8 text-center shadow-sm">
+            <motion.div
+                variants={containerVariants}
+                initial="hidden"
+                animate="visible"
+                className="min-h-screen bg-[#F8F9FC]"
+            >                <div className="mx-auto flex max-w-2xl flex-col items-center justify-center rounded-xl border border-red-100 bg-white p-8 text-center shadow-sm">
                     <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-red-50 text-red-500">
                         <FiAlertCircle size={24} />
                     </div>
@@ -129,7 +158,7 @@ const ClientDashboard = () => {
                         Try Again
                     </button>
                 </div>
-            </div>
+            </motion.div>
         );
     }
 
@@ -170,14 +199,21 @@ const ClientDashboard = () => {
         dashboard?.milestoneRequests || [];
 
     return (
-        <div className="min-h-screen bg-[#F8F9FC]">
+        <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+            className="min-h-screen bg-[#F8F9FC]"
+        >
 
             {/* =========================
                 Header
             ========================= */}
 
-            <div className="mb-8 flex flex-col gap-4 p-2 md:flex-row md:items-center md:justify-between">
-                <div>
+            <motion.div
+                variants={cardVariants}
+                className="mb-8 flex flex-col gap-4 p-2 md:flex-row md:items-center md:justify-between"
+            >                <div>
                     <h1 className="text-2xl font-bold text-[#0B1120]">
                         Good morning,{" "}
                         {user?.name || "Client"} 👋
@@ -199,56 +235,64 @@ const ClientDashboard = () => {
                     <FiPlus size={17} />
                     Post a New Job
                 </button>
-            </div>
-
+            </motion.div>
             {/* =========================
                 Error Message
             ========================= */}
 
-            {error && dashboard && (
-                <div className="mb-6 flex items-center gap-3 rounded-lg border border-red-100 bg-red-50 px-4 py-3 text-sm text-red-600">
-                    <FiAlertCircle size={18} />
-                    <span>{error}</span>
-                </div>
-            )}
+            {
+                error && dashboard && (
+                    <div className="mb-6 flex items-center gap-3 rounded-lg border border-red-100 bg-red-50 px-4 py-3 text-sm text-red-600">
+                        <FiAlertCircle size={18} />
+                        <span>{error}</span>
+                    </div>
+                )
+            }
 
             {/* =========================
                 Stats
             ========================= */}
 
-            <div className="mb-8 grid grid-cols-2 gap-4 lg:grid-cols-4">
-                {stats.map((stat) => {
-                    const Icon = stat.icon;
+            <motion.div
+                variants={containerVariants}
+                className="mb-8 grid grid-cols-2 gap-4 lg:grid-cols-4"
+            >                {stats.map((stat) => {
+                const Icon = stat.icon;
 
-                    return (
-                        <div
-                            key={stat.title}
-                            className="flex min-h-[150px] items-center justify-center rounded-xl border border-gray-100 bg-white p-5 shadow-sm"
-                        >
-                            <div className="flex flex-col items-center text-center">
-                                <div className="mb-3 flex h-11 w-11 items-center justify-center rounded-lg bg-blue-50 text-blue-600">
-                                    <Icon size={21} />
-                                </div>
-
-                                <p className="text-sm text-gray-500">
-                                    {stat.title}
-                                </p>
-
-                                <h2 className="mt-1 text-2xl font-bold text-[#0B1120]">
-                                    {stat.value}
-                                </h2>
+                return (
+                    <motion.div
+                        variants={cardVariants}
+                        key={stat.title}
+                        className="flex min-h-[150px] items-center justify-center rounded-xl border border-gray-100 bg-white p-5 shadow-sm"
+                    >
+                        <div className="flex flex-col items-center text-center">
+                            <div className="mb-3 flex h-11 w-11 items-center justify-center rounded-lg bg-blue-50 text-blue-600">
+                                <Icon size={21} />
                             </div>
+
+                            <p className="text-sm text-gray-500">
+                                {stat.title}
+                            </p>
+
+                            <h2 className="mt-1 text-2xl font-bold text-[#0B1120]">
+                                {stat.value}
+                            </h2>
                         </div>
-                    );
-                })}
-            </div>
+                    </motion.div>
+                );
+
+
+            })}
+            </motion.div>
 
             {/* =========================
                 Active Jobs
             ========================= */}
 
-            <div className="mb-8 rounded-xl border border-gray-100 bg-white shadow-sm">
-
+            <motion.div
+                variants={cardVariants}
+                className="mb-8 rounded-xl border border-gray-100 bg-white shadow-sm"
+            >
                 {/* Section Header */}
 
                 <div className="flex items-center justify-between border-b border-gray-100 px-6 py-5">
@@ -400,14 +444,16 @@ const ClientDashboard = () => {
                         </div>
                     </div>
                 )}
-            </div>
+            </motion.div>
 
             {/* =========================
                 Milestone Approval Requests
             ========================= */}
 
-            <div className="mb-8 rounded-xl border border-gray-100 bg-white shadow-sm">
-
+            <motion.div
+                variants={cardVariants}
+                className="mb-8 rounded-xl border border-gray-100 bg-white shadow-sm"
+            >
                 {/* Section Header */}
 
                 <div className="flex items-center justify-between border-b border-gray-100 px-6 py-5">
@@ -533,8 +579,8 @@ const ClientDashboard = () => {
                         )}
                     </div>
                 )}
-            </div>
-        </div>
+            </motion.div>
+        </motion.div>
     );
 };
 

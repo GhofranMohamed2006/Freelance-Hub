@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { getProposalsByJob, updateProposalStatus } from "../../../services/proposalService";
+import { getProposalsByJob, updateProposalStatus } from "../../../components/services/proposalService";
 
 const ProposalsPage = () => {
-  const { jobId } = useParams(); 
+  const { jobId } = useParams();
   const [proposals, setProposals] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -100,13 +100,12 @@ const ProposalsPage = () => {
 
                 <div className="flex flex-col sm:flex-row items-center justify-between gap-3 pt-3 border-t border-gray-100">
                   <span
-                    className={`px-3 py-1 rounded-full text-xs font-medium capitalize ${
-                      proposal.status === "accepted"
-                        ? "bg-emerald-100 text-emerald-700"
-                        : proposal.status === "rejected"
+                    className={`px-3 py-1 rounded-full text-xs font-medium capitalize ${proposal.status === "accepted"
+                      ? "bg-emerald-100 text-emerald-700"
+                      : proposal.status === "rejected"
                         ? "bg-rose-100 text-rose-700"
                         : "bg-amber-100 text-amber-700"
-                    }`}
+                      }`}
                   >
                     Status: {proposal.status || "pending"}
                   </span>

@@ -1,7 +1,7 @@
 import { Heart, Search, Star } from "lucide-react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { SectionHeading } from "../../../navbar/SectionHeading";
+import { SectionHeading } from "../../../components/navbar/SectionHeading";
 import EmptyState from "../../freelancer/EmptyState";
 import LoadingState from "../../freelancer/LoadingState";
 
@@ -113,11 +113,10 @@ export default function Freelancers({
                     }
                   >
                     <Heart
-                      className={`h-4 w-4 ${
-                        isLiked
+                      className={`h-4 w-4 ${isLiked
                           ? "fill-rose-500 text-rose-500"
                           : "text-slate-300"
-                      }`}
+                        }`}
                     />
                   </button>
 

@@ -4,10 +4,10 @@ import { Link, useNavigate } from "react-router-dom";
 
 import { FiMail, FiLock, FiEye, FiEyeOff, FiArrowRight } from "react-icons/fi";
 
-import googleIcon from "../../../assets/icons/google.webp";
-import githubIcon from "../../../assets/icons/github.webp";
+import googleIcon from "../../assets/icons/google.webp";
+import githubIcon from "../../assets/icons/github.webp";
 
-import { useAuth } from "../../context/AuthContext";
+import { useAuth } from "../../components/context/AuthContext";
 
 const Login = () => {
   const { login } = useAuth();
@@ -103,8 +103,8 @@ const Login = () => {
 
       setServerError(
         err.response?.data?.message ||
-          err.response?.data?.error ||
-          "Invalid email or password",
+        err.response?.data?.error ||
+        "Invalid email or password",
       );
     } finally {
       setIsSubmitting(false);
@@ -142,9 +142,8 @@ const Login = () => {
                     value={formData.email}
                     onChange={handleChange}
                     placeholder="alex.morgan@example.com"
-                    className={`w-full rounded-lg border px-4 py-3 pl-10 text-gray-700 outline-none transition ${
-                      errors.email ? "border-red-500" : "border-gray-200"
-                    }`}
+                    className={`w-full rounded-lg border px-4 py-3 pl-10 text-gray-700 outline-none transition ${errors.email ? "border-red-500" : "border-gray-200"
+                      }`}
                   />
                 </div>
 
@@ -172,9 +171,8 @@ const Login = () => {
                     value={formData.password}
                     onChange={handleChange}
                     placeholder="Enter your password"
-                    className={`w-full rounded-lg border px-4 py-3 pl-10 pr-10 text-gray-700 outline-none transition ${
-                      errors.password ? "border-red-500" : "border-gray-200"
-                    }`}
+                    className={`w-full rounded-lg border px-4 py-3 pl-10 pr-10 text-gray-700 outline-none transition ${errors.password ? "border-red-500" : "border-gray-200"
+                      }`}
                   />
 
                   <button

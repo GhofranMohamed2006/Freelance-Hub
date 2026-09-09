@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 
 import {
     FiSearch,
@@ -16,6 +17,30 @@ import {
 } from "../../api/freelancer.api";
 
 import Loader from "../../components/common/Loader";
+
+const cardVariants = {
+    hidden: {
+        opacity: 0,
+        y: 24,
+    },
+    visible: {
+        opacity: 1,
+        y: 0,
+        transition: {
+            duration: 0.5,
+            ease: "easeOut",
+        },
+    },
+};
+
+const containerVariants = {
+    hidden: {},
+    visible: {
+        transition: {
+            staggerChildren: 0.08,
+        },
+    },
+};
 
 const FindTalent = () => {
     const navigate = useNavigate();
@@ -75,11 +100,19 @@ const FindTalent = () => {
     }, []);
 
     return (
-        <div className="min-h-screen bg-[#F8F9FC]">
+        <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+            className="min-h-screen bg-[#F8F9FC]"
+        >
 
             {/* Header */}
 
-            <div className="mb-8 mx-2">
+            <motion.div
+                variants={cardVariants}
+                className="mb-8 mx-2"
+            >
                 <h1 className="text-2xl font-bold text-[#0B1120]">
                     Find Talent
                 </h1>
@@ -88,9 +121,12 @@ const FindTalent = () => {
                     Find the right freelancer for your
                     project.
                 </p>
-            </div>
+            </motion.div>
 
-            <div className="mb-8 rounded-xl border border-gray-100 bg-white p-5 shadow-sm">
+            <motion.div
+                variants={cardVariants}
+                className="mb-8 rounded-xl border border-gray-100 bg-white p-5 shadow-sm"
+            >
                 {/* Search */}
                 <div className="relative">
                     <FiSearch
@@ -107,7 +143,6 @@ const FindTalent = () => {
                     />
                 </div>
 
-                {/* Category Filter */}
                 {/* Category Filter */}
                 <div className="mt-5">
                     <div className="mb-3 flex items-center justify-between">
@@ -131,8 +166,8 @@ const FindTalent = () => {
                             type="button"
                             onClick={() => setCategory("")}
                             className={`rounded-full px-4 py-2 text-sm font-medium transition ${category === ""
-                                    ? "bg-blue-600 text-white shadow-sm"
-                                    : "bg-gray-50 text-gray-600 hover:bg-blue-50 hover:text-blue-600"
+                                ? "bg-blue-600 text-white shadow-sm"
+                                : "bg-gray-50 text-gray-600 hover:bg-blue-50 hover:text-blue-600"
                                 }`}
                         >
                             All
@@ -144,8 +179,8 @@ const FindTalent = () => {
                                 type="button"
                                 onClick={() => setCategory(cat.id)}
                                 className={`rounded-full px-4 py-2 text-sm font-medium transition ${category === cat.id
-                                        ? "bg-blue-600 text-white shadow-sm"
-                                        : "bg-gray-50 text-gray-600 hover:bg-blue-50 hover:text-blue-600"
+                                    ? "bg-blue-600 text-white shadow-sm"
+                                    : "bg-gray-50 text-gray-600 hover:bg-blue-50 hover:text-blue-600"
                                     }`}
                             >
                                 {cat.name}
@@ -153,7 +188,7 @@ const FindTalent = () => {
                         ))}
                     </div>
                 </div>
-            </div>
+            </motion.div>
 
             {/* Error */}
 
@@ -172,7 +207,10 @@ const FindTalent = () => {
 
                 /* Empty State */
 
-                <div className="rounded-xl border border-gray-100 bg-white px-6 py-14 text-center shadow-sm">
+                <motion.div
+                    variants={cardVariants}
+                    className="rounded-xl border border-gray-100 bg-white px-6 py-14 text-center shadow-sm"
+                >
 
                     <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-blue-50 text-blue-600">
                         <FiUser size={24} />
@@ -186,26 +224,30 @@ const FindTalent = () => {
                         Try searching with another name
                         or skill.
                     </p>
-                </div>
+                </motion.div>
 
             ) : (
 
                 /* Results */
 
                 <>
-                    <div className="mb-4">
+                    <motion.div variants={cardVariants} className="mb-4">
                         <p className="text-sm text-gray-500">
                             <span className="font-semibold text-gray-800">
                                 {freelancers.length}
                             </span>{" "}
                             freelancers found
                         </p>
-                    </div>
+                    </motion.div>
 
-                    <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+                    <motion.div
+                        variants={containerVariants}
+                        className="grid gap-5 md:grid-cols-2 xl:grid-cols-3"
+                    >
 
                         {freelancers.map((freelancer) => (
-                            <div
+                            <motion.div
+                                variants={cardVariants}
                                 key={freelancer.id}
                                 className="rounded-xl border border-gray-100 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-md"
                             >
@@ -311,13 +353,13 @@ const FindTalent = () => {
                                     </button>
 
                                 </div>
-                            </div>
+                            </motion.div>
                         ))}
 
-                    </div>
+                    </motion.div>
                 </>
             )}
-        </div>
+        </motion.div>
     );
 };
 

@@ -53,7 +53,7 @@ const FreelancerSidebar = ({ onNavigate }) => {
     },
     {
       name: "Find Work",
-      path: "/find-work",
+      path: "/freelancer/find-work",
       icon: Search,
     },
     {

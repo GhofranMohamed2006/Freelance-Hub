@@ -15,7 +15,7 @@ import {
   updateUser,
   changePassword as changePasswordApi,
   saveNotifications as saveNotificationsApi,
-} from "../../../api/auth.api.js";
+} from "../../api/auth.api.js";
 
 const AccountSettings = () => {
   const [activeTab, setActiveTab] = useState("profile");
@@ -76,9 +76,9 @@ const AccountSettings = () => {
     } catch (err) {
       setError(
         err?.response?.data?.message ||
-          err?.response?.data?.error ||
-          err?.message ||
-          "Failed to load account information",
+        err?.response?.data?.error ||
+        err?.message ||
+        "Failed to load account information",
       );
     } finally {
       setLoading(false);
@@ -121,9 +121,9 @@ const AccountSettings = () => {
     } catch (err) {
       setError(
         err?.response?.data?.message ||
-          err?.response?.data?.error ||
-          err?.message ||
-          "Failed to update profile",
+        err?.response?.data?.error ||
+        err?.message ||
+        "Failed to update profile",
       );
     } finally {
       setSaving(false);
@@ -158,9 +158,9 @@ const AccountSettings = () => {
     } catch (err) {
       setError(
         err?.response?.data?.message ||
-          err?.response?.data?.error ||
-          err?.message ||
-          "Failed to change password",
+        err?.response?.data?.error ||
+        err?.message ||
+        "Failed to change password",
       );
     } finally {
       setSaving(false);
@@ -179,9 +179,9 @@ const AccountSettings = () => {
     } catch (err) {
       setError(
         err?.response?.data?.message ||
-          err?.response?.data?.error ||
-          err?.message ||
-          "Failed to save notification preferences",
+        err?.response?.data?.error ||
+        err?.message ||
+        "Failed to save notification preferences",
       );
     } finally {
       setSaving(false);
@@ -308,11 +308,10 @@ const AccountSettings = () => {
                     setMessage("");
                     setError("");
                   }}
-                  className={`flex w-full items-center gap-4 rounded-xl px-4 py-4 text-left text-sm font-semibold transition ${
-                    activeTab === tab.id
+                  className={`flex w-full items-center gap-4 rounded-xl px-4 py-4 text-left text-sm font-semibold transition ${activeTab === tab.id
                       ? "bg-indigo-600 text-white shadow-sm"
                       : "text-slate-600 hover:bg-indigo-50 hover:text-indigo-600"
-                  }`}
+                    }`}
                 >
                   <Icon className="h-5 w-5 shrink-0" />
                   <span>{tab.label}</span>
@@ -669,14 +668,12 @@ const NotificationToggle = ({ title, description, checked, onChange }) => {
       <button
         type="button"
         onClick={() => onChange((prev) => !prev)}
-        className={`relative h-6 w-11 shrink-0 rounded-full transition ${
-          checked ? "bg-indigo-600" : "bg-slate-300"
-        }`}
+        className={`relative h-6 w-11 shrink-0 rounded-full transition ${checked ? "bg-indigo-600" : "bg-slate-300"
+          }`}
       >
         <span
-          className={`absolute top-1 h-4 w-4 rounded-full bg-white shadow transition ${
-            checked ? "left-6" : "left-1"
-          }`}
+          className={`absolute top-1 h-4 w-4 rounded-full bg-white shadow transition ${checked ? "left-6" : "left-1"
+            }`}
         />
       </button>
     </div>

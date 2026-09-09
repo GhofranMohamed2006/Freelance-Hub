@@ -6,10 +6,11 @@ import { FiMail } from "react-icons/fi";
 import { FiLock } from "react-icons/fi";
 import { FiEye, FiEyeOff } from "react-icons/fi";
 import { FiArrowRight } from "react-icons/fi";
-import googleIcon from "../../../assets/icons/google.webp";
-import githubIcon from "../../../assets/icons/github.webp";
+import googleIcon from "../../assets/icons/google.webp";
+import githubIcon from "../../assets/icons/github.webp";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "../../context/AuthContext";
+import { useAuth } from "../../components/context/AuthContext";
+
 const Register = () => {
     const [role, setRole] = useState("");
     const [errors, setErrors] = useState({});
@@ -341,8 +342,8 @@ const Register = () => {
                                 <div className="grid grid-cols-1 gap-1 sm:grid-cols-2">
                                     <p
                                         className={`text-xs ${formData.password.length >= 8
-                                                ? "text-green-600"
-                                                : "text-gray-400"
+                                            ? "text-green-600"
+                                            : "text-gray-400"
                                             }`}
                                     >
                                         ✓ At least 8 characters
@@ -350,8 +351,8 @@ const Register = () => {
 
                                     <p
                                         className={`text-xs ${/[A-Z]/.test(formData.password)
-                                                ? "text-green-600"
-                                                : "text-gray-400"
+                                            ? "text-green-600"
+                                            : "text-gray-400"
                                             }`}
                                     >
                                         ✓ One uppercase letter
@@ -359,8 +360,8 @@ const Register = () => {
 
                                     <p
                                         className={`text-xs ${/[a-z]/.test(formData.password)
-                                                ? "text-green-600"
-                                                : "text-gray-400"
+                                            ? "text-green-600"
+                                            : "text-gray-400"
                                             }`}
                                     >
                                         ✓ One lowercase letter
@@ -368,8 +369,8 @@ const Register = () => {
 
                                     <p
                                         className={`text-xs ${/[0-9]/.test(formData.password)
-                                                ? "text-green-600"
-                                                : "text-gray-400"
+                                            ? "text-green-600"
+                                            : "text-gray-400"
                                             }`}
                                     >
                                         ✓ One number
@@ -379,8 +380,8 @@ const Register = () => {
                                         className={`text-xs ${/[!@#$%^&*(),.?":{}|<>_\-\\[\]/'`~+=;]/.test(
                                             formData.password
                                         )
-                                                ? "text-green-600"
-                                                : "text-gray-400"
+                                            ? "text-green-600"
+                                            : "text-gray-400"
                                             }`}
                                     >
                                         ✓ One special character

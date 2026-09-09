@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { createProposal } from "../../../services/proposalService";
+import { createProposal } from "../../../components/services/proposalService";
 
 const SubmitProposalPage = () => {
-  const { jobId } = useParams(); 
+  const { jobId } = useParams();
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
@@ -20,7 +20,7 @@ const SubmitProposalPage = () => {
       setError("");
 
       await createProposal({
-        jobId: jobId || "1", 
+        jobId: jobId || "1",
         coverLetter: formData.coverLetter,
         proposedRate: Number(formData.proposedRate),
       });

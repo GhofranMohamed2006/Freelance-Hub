@@ -46,7 +46,7 @@ function App() {
           <Route path="/client-dashboard" element={<ClientDashboard />} />
           <Route path="/post-job" element={<PostJob />} />
           <Route path="/find-talents" element={<FindTalent />} />
-          
+
           {/* Client View Proposals */}
           <Route path="/jobs/:jobId/proposals" element={<ProposalsPage />} />
           <Route path="/proposals" element={<ProposalsPage />} />
@@ -65,10 +65,12 @@ function App() {
             element={<FreelancerProjectWorkspace />}
           />
           <Route path="/freelancer/projects" element={<FreelancerProjects />} />
-          
+
           {/* Freelancer Proposals Management & Submission */}
           <Route path="/jobs/:jobId/apply" element={<SubmitProposalPage />} />
           <Route path="/freelancer/proposals" element={<SubmitProposalPage />} />
+
+          <Route path="/freelancer/find-work" element={<FindWork />} />
         </Route>
       </Route>
     </Routes>

@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { BriefcaseBusiness } from "lucide-react";
 
-import { SectionHeading } from "../../../navbar/SectionHeading";
+import { SectionHeading } from "../../../components/navbar/SectionHeading";
 import EmptyState from "../../freelancer/EmptyState";
 import LoadingState from "../../freelancer/LoadingState";
 

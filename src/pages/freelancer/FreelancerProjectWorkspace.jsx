@@ -10,7 +10,7 @@ import {
   getFreelancerPayments,
   updateMilestone,
   uploadProjectFile,
-} from "../../../api/freelancer.api.js";
+} from "../../api/freelancer.api.js";
 
 export default function FreelancerProjectWorkspace() {
   const { id } = useParams();
@@ -226,22 +226,20 @@ export default function FreelancerProjectWorkspace() {
                     className="flex items-start gap-4 rounded-2xl border border-slate-100 p-5 text-left transition hover:border-indigo-200 hover:bg-indigo-50/30"
                   >
                     <span
-                      className={`mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded border ${
-                        completed
+                      className={`mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded border ${completed
                           ? "border-indigo-600 bg-indigo-600 text-white"
                           : "border-slate-300"
-                      }`}
+                        }`}
                     >
                       {completed && <Check className="h-3.5 w-3.5" />}
                     </span>
 
                     <span>
                       <span
-                        className={`block font-semibold ${
-                          completed
+                        className={`block font-semibold ${completed
                             ? "text-slate-500 line-through"
                             : "text-slate-800"
-                        }`}
+                          }`}
                       >
                         {milestone.title}
                       </span>

@@ -14,7 +14,7 @@ import {
   ChevronRight,
 } from "lucide-react";
 
-import { getFreelancerDashboard } from "../../../api/freelancer.api.js";
+import { getFreelancerDashboard } from "../../api/freelancer.api.js";
 import StatCard from "./StatCard.jsx";
 import OverviewRow from "./OverviewRow.jsx";
 import EmptyState from "./EmptyState.jsx";
@@ -547,11 +547,10 @@ export default function FreelancerDashboard() {
                 <motion.div
                   key={notification.id || index}
                   whileHover={{ y: -2 }}
-                  className={`rounded-2xl border p-4 ${
-                    notification.read
+                  className={`rounded-2xl border p-4 ${notification.read
                       ? "border-slate-100 bg-white"
                       : "border-indigo-100 bg-indigo-50/40"
-                  }`}
+                    }`}
                 >
                   <div className="flex gap-3">
                     <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-indigo-100 text-indigo-600">

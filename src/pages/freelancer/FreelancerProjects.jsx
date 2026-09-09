@@ -9,7 +9,7 @@ import {
   Plus,
 } from "lucide-react";
 import { Link } from "react-router-dom";
-import { getFreelancerProjects } from "../../../api/freelancer.api.js";
+import { getFreelancerProjects } from "../../api/freelancer.api.js";
 import SummaryCard from "./SummaryCard";
 import ProjectCard from "./ProjectCard";
 import { money } from "./helpers";
@@ -114,7 +114,7 @@ export default function FreelancerProjects() {
               </p>
             </div>
             <Link
-              to="/find-work"
+              to="/freelancer/find-work"
               className="inline-flex items-center justify-center gap-2 rounded-xl bg-indigo-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-indigo-700"
             >
               <Plus className="h-4 w-4" />
@@ -181,7 +181,7 @@ export default function FreelancerProjects() {
                 Your projects will appear here after a client hires you.
               </p>
               <Link
-                to="/find-work"
+                to="/freelancer/find-work"
                 className="mt-5 inline-flex items-center gap-2 rounded-xl bg-indigo-600 px-5 py-3 text-sm font-semibold text-white"
               >
                 Find Work

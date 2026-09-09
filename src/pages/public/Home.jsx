@@ -1,8 +1,8 @@
 import { useEffect, useMemo, useState } from "react";
 import { Code2, Globe2, Sparkles } from "lucide-react";
-import { Footer } from "./../components/footer/Footer";
-import { getFreelancers } from "../../../api/freelancer.api";
-import { getCategories } from "../../services/categoryService";
+import { Footer } from "../../components/footer/Footer";
+import { getFreelancers } from "../../api/freelancer.api";
+import { getCategories } from "../../components/services/categoryService";
 import ErrorState from "../freelancer/ErrorState";
 import Freelancers from "./freelancer/Freelances";
 import HeroSection from "./sections/HeroSection";

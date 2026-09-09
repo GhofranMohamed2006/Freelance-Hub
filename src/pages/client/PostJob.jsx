@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 
-import SkillSelector from "../project/SkillSelector";
+import SkillSelector from "../../components/project/SkillSelector";
 
-import { createJob } from "../services/jobService";
-import { getCategories } from "../services/categoryService";
+import { createJob } from "../../components/services/jobService";
+import { getCategories } from "../../components/services/categoryService";
 
 function PostJob() {
     const navigate = useNavigate();
@@ -141,6 +142,30 @@ function PostJob() {
         navigate(-1);
     };
 
+    const cardVariants = {
+        hidden: {
+            opacity: 0,
+            y: 24,
+        },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: {
+                duration: 0.5,
+                ease: "easeOut",
+            },
+        },
+    };
+
+    const containerVariants = {
+        hidden: {},
+        visible: {
+            transition: {
+                staggerChildren: 0.08,
+            },
+        },
+    };
+
     return (
         <div className="min-h-screen">
 
@@ -148,7 +173,13 @@ function PostJob() {
                 <div className="mx-auto max-w-3xl">
 
                     {/* Header */}
-                    <div className="mb-8 text-center font-lora">
+                    <motion.div
+                        variants={containerVariants}
+
+                        initial="hidden"
+                        animate="visible"
+                        className="mb-8 text-center font-lora"
+                    >
                         <h1 className="text-3xl font-bold text-gray-800 sm:text-4xl">
                             Post a New Job
                         </h1>
@@ -156,11 +187,14 @@ function PostJob() {
                         <p className="mt-2 text-gray-500">
                             Find the right freelancer for your project.
                         </p>
-                    </div>
+                    </motion.div>
 
                     {/* Form Card */}
-                    <form
+                    <motion.form
+                        variants={cardVariants}
                         onSubmit={handleSubmit}
+                        initial="hidden"
+                        animate="visible"
                         className="rounded-2xl border border-gray-200 bg-white p-5 shadow-md sm:p-8"
                     >
 
@@ -410,7 +444,7 @@ function PostJob() {
                                 {loading ? "Posting..." : "Post a Job"}
                             </button>
                         </div>
-                    </form>
+                    </motion.form>
                 </div>
             </div>
         </div>
