@@ -399,11 +399,14 @@ const ClientDashboard = () => {
                                         {/* Budget */}
 
                                         <div>
-                                            <p className="font-medium text-gray-700">
-                                                {job.budget ||
-                                                    "—"}
-                                            </p>
-                                        </div>
+                                          <p className="font-medium text-gray-700">
+                                              {job.minBudget && job.maxBudget
+                                                  ? `$${job.minBudget} - $${job.maxBudget}`
+                                                  : job.budget
+                                                      ? `$${job.budget}`
+                                                      : "—"}
+                                          </p>
+                                      </div>
 
                                         {/* Proposals */}
 

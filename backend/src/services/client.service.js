@@ -3,20 +3,19 @@ const Proposal = require("../models/Proposal");
 const Project = require("../models/Project");
 
 function getDashboard(userId) {
+
     // -------------------------
     // Client Jobs
     // -------------------------
+
     const clientJobs = Job.all().filter(
         (job) => job.clientId === userId
-    );
-
-    const activeJobs = clientJobs.filter(
-        (job) => job.status === "open"
     );
 
     // -------------------------
     // Client Proposals
     // -------------------------
+
     const clientJobIds = new Set(
         clientJobs.map((job) => job.id)
     );
@@ -26,8 +25,22 @@ function getDashboard(userId) {
     );
 
     // -------------------------
+    // Active Jobs + Proposals Count
+    // -------------------------
+
+    const activeJobs = clientJobs
+        .filter((job) => job.status === "open")
+        .map((job) => ({
+            ...job,
+            proposals: clientProposals.filter(
+                (proposal) => proposal.jobId === job.id
+            ).length,
+        }));
+
+    // -------------------------
     // Client Projects
     // -------------------------
+
     const clientProjects = Project.all().filter(
         (project) => project.clientId === userId
     );
@@ -43,6 +56,7 @@ function getDashboard(userId) {
     // -------------------------
     // Milestone Approval Requests
     // -------------------------
+
     const milestoneRequests = [];
 
     clientProjects.forEach((project) => {
@@ -72,7 +86,8 @@ function getDashboard(userId) {
         recentProposals: clientProposals
             .sort(
                 (a, b) =>
-                    new Date(b.createdAt) - new Date(a.createdAt)
+                    new Date(b.createdAt) -
+                    new Date(a.createdAt)
             )
             .slice(0, 5),
     };
