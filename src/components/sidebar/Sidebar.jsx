@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom";
+
 import { useAuth } from "../context/AuthContext";
 
 import {
@@ -67,7 +68,7 @@ const Sidebar = ({ onNavigate }) => {
     const { user } = useAuth();
 
     return (
-        <aside className="flex h-full min-h-0 w-full flex-col bg-white">
+        <aside className="flex h-full min-h-0 w-full flex-col overflow-hidden bg-white">
 
             {/* Logo */}
             <div className="flex h-[72px] shrink-0 items-center justify-between border-b border-gray-100 px-6">
@@ -75,12 +76,12 @@ const Sidebar = ({ onNavigate }) => {
                     Lynk
                 </h1>
 
-                {/* Close Button - Mobile / Tablet */}
+                {/* Close Button - Tablet / Mobile */}
                 <button
                     type="button"
                     onClick={onNavigate}
                     aria-label="Close sidebar"
-                    className="flex cursor-pointer items-center justify-center rounded-lg p-2 text-gray-500 transition hover:bg-gray-100 hover:text-gray-700 lg:hidden"
+                    className="flex cursor-pointer items-center justify-center rounded-lg p-2 text-gray-500 transition hover:bg-gray-100 hover:text-gray-700 xl:hidden"
                 >
                     <FiX size={22} />
                 </button>
@@ -89,16 +90,16 @@ const Sidebar = ({ onNavigate }) => {
             {/* Navigation */}
             <nav className="sidebar-scroll min-h-0 flex-1 overflow-y-auto px-4 py-5">
                 <div className="space-y-1.5">
-
                     {navLinks.map(({ to, label, icon: Icon }) => (
                         <NavLink
                             key={to}
                             to={to}
                             onClick={onNavigate}
                             className={({ isActive }) =>
-                                `flex items-center gap-3.5 rounded-xl px-4 py-3 text-sm font-medium transition-all duration-200 ${isActive
-                                    ? "bg-blue-700 text-white shadow-sm"
-                                    : "text-gray-600 hover:bg-blue-50 hover:text-blue-700"
+                                `flex items-center gap-3.5 rounded-xl px-4 py-3 text-sm font-medium transition-all duration-200 ${
+                                    isActive
+                                        ? "bg-blue-700 text-white shadow-sm"
+                                        : "text-gray-600 hover:bg-blue-50 hover:text-blue-700"
                                 }`
                             }
                         >
@@ -112,8 +113,6 @@ const Sidebar = ({ onNavigate }) => {
                             </span>
                         </NavLink>
                     ))}
-
-
                 </div>
             </nav>
 

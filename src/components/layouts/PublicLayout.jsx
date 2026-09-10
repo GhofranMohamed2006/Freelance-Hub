@@ -4,30 +4,45 @@ import { Outlet } from "react-router-dom";
 import Navbar from "../navbar/Navbar";
 import Sidebar from "../sidebar/Sidebar";
 import FreelancerSidebar from "../sidebar/FreelancerSidebar";
-
 import { useAuth } from "../context/AuthContext";
 
 const PublicLayout = () => {
-    const [sidebarOpen, setSidebarOpen] = useState(true);
+    const [sidebarOpen, setSidebarOpen] = useState(false);
 
     const { user } = useAuth();
 
     const isClient = user?.role === "client";
     const isFreelancer = user?.role === "freelancer";
-
     const showSidebar = isClient || isFreelancer;
 
-    return (
-        <div className="min-h-screen bg-[#F8F9FC]">
+    const closeSidebar = () => {
+        setSidebarOpen(false);
+    };
 
-            {/* Desktop Sidebar */}
+    const toggleSidebar = () => {
+        setSidebarOpen((prev) => !prev);
+    };
+
+    return (
+        <div className="min-h-screen w-full overflow-x-hidden bg-[#F8F9FC]">
+
+            {/* ================= DESKTOP SIDEBAR ================= */}
+
             {showSidebar && (
                 <aside
-                    className={`fixed left-0 top-0 z-50 hidden h-screen w-64 border-r border-gray-200 bg-white shadow-lg transition-transform duration-300 lg:block ${
-                        sidebarOpen
-                            ? "translate-x-0"
-                            : "-translate-x-full"
-                    }`}
+                    className={`
+                        fixed inset-y-0 left-0 z-50
+                        hidden w-64
+                        border-r border-gray-200
+                        bg-white shadow-lg
+                        xl:block
+                        transition-transform duration-300
+                        ${
+                            sidebarOpen
+                                ? "translate-x-0"
+                                : "-translate-x-full"
+                        }
+                    `}
                 >
                     {isClient ? (
                         <Sidebar />
@@ -37,58 +52,89 @@ const PublicLayout = () => {
                 </aside>
             )}
 
-            {/* Mobile / Tablet Sidebar */}
+            {/* ================= TABLET / MOBILE SIDEBAR ================= */}
+
             {showSidebar && (
                 <aside
-                    className={`fixed left-0 top-0 z-[60] h-screen w-72 max-w-[85vw] border-r border-gray-200 bg-white shadow-xl transition-transform duration-300 ease-in-out lg:hidden ${
-                        sidebarOpen
-                            ? "translate-x-0"
-                            : "-translate-x-full"
-                    }`}
+                    className={`
+                        fixed inset-y-0 left-0
+                        z-[100]
+                        w-72 max-w-[85vw]
+                        border-r border-gray-200
+                        bg-white shadow-2xl
+                        xl:hidden
+                        transition-transform duration-300
+                        ${
+                            sidebarOpen
+                                ? "translate-x-0"
+                                : "-translate-x-full"
+                        }
+                    `}
                 >
                     {isClient ? (
-                        <Sidebar
-                            onNavigate={() => setSidebarOpen(false)}
-                        />
+                        <Sidebar onNavigate={closeSidebar} />
                     ) : (
-                        <FreelancerSidebar
-                            onNavigate={() => setSidebarOpen(false)}
-                        />
+                        <FreelancerSidebar onNavigate={closeSidebar} />
                     )}
                 </aside>
             )}
 
-            {/* Mobile Overlay */}
-            {sidebarOpen && showSidebar && (
-                <button
-                    type="button"
-                    aria-label="Close sidebar"
-                    onClick={() => setSidebarOpen(false)}
-                    className="fixed inset-0 z-50 bg-black/30 backdrop-blur-[1px] lg:hidden"
+            {/* ================= TABLET / MOBILE OVERLAY ================= */}
+
+            {showSidebar && sidebarOpen && (
+                <div
+                    onClick={closeSidebar}
+                    className="
+                        fixed inset-0
+                        z-[90]
+                        bg-black/30
+                        xl:hidden
+                    "
                 />
             )}
 
-            {/* Main Area */}
-            <div
-                className={`min-h-screen transition-all duration-300 ${
-                    showSidebar && sidebarOpen
-                        ? "lg:ml-64"
-                        : "lg:ml-0"
-                }`}
-            >
+            {/* ================= MAIN ================= */}
 
-                {/* Navbar */}
-                <header className="sticky top-0 z-40 border-b border-gray-200 bg-white shadow-sm">
+            <div
+              className={`
+                  min-h-screen
+                  transition-all
+                  duration-300
+                  ${
+                      showSidebar && sidebarOpen
+                          ? "xl:ml-64 xl:w-[calc(100%-16rem)]"
+                          : "w-full"
+                  }
+              `}
+          >
+
+                {/* ================= NAVBAR ================= */}
+
+                <header
+                    className="
+                        sticky top-0 z-40
+                        w-full
+                        border-b border-gray-200
+                        bg-white
+                        shadow-sm
+                    "
+                >
                     <Navbar
-                        onMenuClick={() =>
-                            setSidebarOpen((prev) => !prev)
-                        }
+                        onMenuClick={toggleSidebar}
                         showSidebarMenu={showSidebar}
                     />
                 </header>
 
-                {/* Content */}
-                <main className="min-h-[calc(100vh-64px)] bg-[#F8F9FC]">
+                {/* ================= PAGE CONTENT ================= */}
+
+                <main
+                    className="
+                        min-h-[calc(100vh-64px)]
+                        w-full
+                        overflow-x-hidden
+                        bg-[#F8F9FC]
+                    "
+                >
                     <Outlet />
                 </main>
 
