@@ -20,9 +20,9 @@ const SubmitProposalPage = () => {
       setError("");
 
       await createProposal({
-        jobId: jobId || "1",
+        jobId,
         coverLetter: formData.coverLetter,
-        proposedRate: Number(formData.proposedRate),
+        bid: Number(formData.proposedRate),
       });
 
       alert("Proposal was successfully delivered!");

@@ -7,7 +7,9 @@ export const createProposal = async (proposalData) => {
 
 export const getProposalsByJob = async (jobId) => {
   const response = await api.get("/proposals", {
-    params: { jobId }
+    params: { 
+      jobId,
+    },
   });
   return response.data;
 };

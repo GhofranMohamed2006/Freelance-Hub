@@ -13,8 +13,12 @@ const ProposalsPage = () => {
       try {
         setLoading(true);
         setError("");
-        const data = await getProposalsByJob(jobId || "1");
-        setProposals(Array.isArray(data) ? data : data.proposals || []);
+        const data = await getProposalsByJob(jobId);
+        setProposals(
+          Array.isArray(data)
+            ? data
+            : data.data || []
+        );
       } catch (err) {
         console.error("Error fetching proposals:", err);
         setError(err.response?.data?.message || "Failed to load the submitted proposals");
@@ -71,7 +75,7 @@ const ProposalsPage = () => {
           {proposals.map((proposal) => {
             const id = proposal._id || proposal.id;
             const freelancerName = proposal.freelancer?.name || "Freelancer";
-            const rate = proposal.proposedRate || proposal.rate || 0;
+            const rate = proposal.bid || 0;
 
             return (
               <div
@@ -110,20 +114,23 @@ const ProposalsPage = () => {
                     Status: {proposal.status || "pending"}
                   </span>
 
-                  <div className="flex items-center gap-2">
-                    <button
-                      onClick={() => handleStatusChange(id, "rejected")}
-                      className="px-4 py-2 border border-gray-300 rounded-lg text-xs font-medium text-gray-600 hover:bg-gray-50 transition"
-                    >
-                      Reject
-                    </button>
-                    <button
-                      onClick={() => handleStatusChange(id, "accepted")}
-                      className="px-4 py-2 bg-indigo-600 text-white rounded-lg text-xs font-medium hover:bg-indigo-700 transition"
-                    >
-                      Accept Proposal
-                    </button>
-                  </div>
+                  {proposal.status === "pending" && (
+                    <div className="flex items-center gap-2">
+                      <button
+                        onClick={() => handleStatusChange(id, "rejected")}
+                        className="px-4 py-2 border border-gray-300 rounded-lg text-xs font-medium text-gray-600 cursor-pointer hover:bg-gray-50 transition"
+                      >
+                        Reject
+                      </button>
+
+                      <button
+                        onClick={() => handleStatusChange(id, "accepted")}
+                        className="px-4 py-2 bg-indigo-600 text-white rounded-lg text-xs font-medium cursor-pointer hover:bg-indigo-700 transition"
+                      >
+                        Accept Proposal
+                      </button>
+                    </div>
+                  )}
                 </div>
               </div>
             );
@@ -135,3 +142,4 @@ const ProposalsPage = () => {
 };
 
 export default ProposalsPage;
+

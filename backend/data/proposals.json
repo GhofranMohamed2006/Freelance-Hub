@@ -1,1 +1,25 @@
-[]
+[
+  {
+    "id": "39dd60e1-7377-4801-9c0a-e22739277d2d",
+    "jobId": "606237f7-f8a9-4a39-a562-667eeaaac981",
+    "freelancerId": "8a57cf45-6c7e-4b91-b20f-612bdf11cf1d",
+    "estimatedCompletionTime": "",
+    "coverLetter": "Hi there,\n\nI saw your project posting and would love to help you build and refine your web application!\n\nAs a skilled Full-Stack React & Node.js Developer, I have extensive experience with building responsive user interfaces, integrating RESTful APIs, and implementing clean database schemas.\n\nWhy work with me?\n\nStrong experience with React, Tailwind CSS, and Node.js/Express.\n\nFast delivery, clean & reusable code, and great communication.\n\nHigh attention to detail and UI/UX design patterns.\n\nI am ready to start immediately and deliver quality results for your team. Looking forward to discussing the project further!\n\nBest regards,\n\nGhofran",
+    "skills": [],
+    "status": "accepted",
+    "createdAt": "2026-09-09T21:51:44.817Z",
+    "updatedAt": "2026-09-09T22:34:32.943Z"
+  },
+  {
+    "id": "4a165970-089c-44fe-9df5-302816be7a5e",
+    "jobId": "3bbd6440-a21e-4043-9625-2e7dbe607e64",
+    "freelancerId": "8a57cf45-6c7e-4b91-b20f-612bdf11cf1d",
+    "bid": 250,
+    "estimatedCompletionTime": "",
+    "coverLetter": "Hi there,\n\nI saw your project posting and would love to help you build and refine your web application!\n\nAs a skilled Full-Stack React & Node.js Developer, I have extensive experience with building responsive user interfaces, integrating RESTful APIs, and implementing clean database schemas.\n\nWhy work with me?\n\nStrong experience with React, Tailwind CSS, and Node.js/Express.\n\nFast delivery, clean & reusable code, and great communication.\n\nHigh attention to detail and UI/UX design patterns.\n\nI am ready to start immediately and deliver quality results for your team. Looking forward to discussing the project further!\n\nBest regards,\n\nGhofran",
+    "skills": [],
+    "status": "rejected",
+    "createdAt": "2026-09-09T23:04:01.137Z",
+    "updatedAt": "2026-09-09T23:04:31.448Z"
+  }
+]

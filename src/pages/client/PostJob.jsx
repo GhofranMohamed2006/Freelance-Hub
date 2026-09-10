@@ -23,6 +23,7 @@ function PostJob() {
         minBudget: "",
         maxBudget: "",
         duration: "",
+        experienceLevel: "",
     });
 
     // ================= STATES =================

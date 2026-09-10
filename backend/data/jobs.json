@@ -14,5 +14,37 @@
     "views": 0,
     "createdAt": "2026-09-05T00:34:10.247Z",
     "updatedAt": "2026-09-05T00:34:10.247Z"
+  },
+  {
+    "id": "3bbd6440-a21e-4043-9625-2e7dbe607e64",
+    "title": "Build Quran App",
+    "description": "I want to build Quran App to listen quran any time without internet network.",
+    "category": "cat-mobile",
+    "skills": [
+      "Dart"
+    ],
+    "clientId": "cc76252e-d7bd-40c9-93f4-d6f84afd89cc",
+    "status": "open",
+    "views": 0,
+    "createdAt": "2026-09-09T23:03:24.713Z",
+    "updatedAt": "2026-09-09T23:03:24.713Z"
+  },
+  {
+    "id": "2184e01e-399d-4051-a068-092dc986a96c",
+    "title": "Logo for Cafe",
+    "description": "I want a logo to my cafe mofern and beautiful attract people.",
+    "category": "cat-logo",
+    "skills": [
+      "Designs"
+    ],
+    "minBudget": "50",
+    "maxBudget": "100",
+    "duration": "2-4-weeks",
+    "experienceLevel": "",
+    "clientId": "cc76252e-d7bd-40c9-93f4-d6f84afd89cc",
+    "status": "open",
+    "views": 0,
+    "createdAt": "2026-09-09T23:16:30.421Z",
+    "updatedAt": "2026-09-09T23:16:30.421Z"
   }
 ]
