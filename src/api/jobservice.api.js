@@ -7,7 +7,13 @@ export const getJobs = async (params = {}) => {
 
     return response.data;
 };
+
 export const getJob = async (id) => {
     const response = await api.get(`/jobs/${id}`);
+    return response.data;
+};
+
+export const incrementJobViews = async (id) => {
+    const response = await api.post(`/jobs/${id}/view`);
     return response.data;
 };
