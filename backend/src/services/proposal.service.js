@@ -1,6 +1,7 @@
 const Proposal = require("../models/Proposal");
 const Job = require("../models/Job");
 const User = require("../models/User");
+const Project = require("../models/Project");
 const { id, now, pick } = require("../utils/helpers");
 function list(q, user) {
   let a = Proposal.all();
@@ -87,21 +88,84 @@ function create(b, userId) {
   });
 }
 function update(i, b, user) {
-  const p = get(i),
-    job = Job.findById(p.jobId);
-  const isFreelancer = p.freelancerId === user.id,
-    isClient = job && job.clientId === user.id;
-  if (!isFreelancer && !isClient)
-    throw Object.assign(new Error("Not allowed"), { status: 403 });
+  const p = get(i);
+  const job = Job.findById(p.jobId);
+
+  const isFreelancer = p.freelancerId === user.id;
+  const isClient = job && job.clientId === user.id;
+
+  if (!isFreelancer && !isClient) {
+    throw Object.assign(new Error("Not allowed"), {
+      status: 403,
+    });
+  }
+
   const patch = isFreelancer
-    ? pick(b, ["bid", "estimatedCompletionTime", "coverLetter", "skills"])
+    ? pick(b, [
+        "bid",
+        "estimatedCompletionTime",
+        "coverLetter",
+        "skills",
+      ])
     : pick(b, ["status"]);
-  return Proposal.update(i, { ...patch, updatedAt: now() });
+
+  const updatedProposal = Proposal.update(i, {
+    ...patch,
+    updatedAt: now(),
+  });
+
+  // Create a project automatically when client accepts proposal
+  if (
+    isClient &&
+    b.status === "accepted" &&
+    p.status !== "accepted"
+  ) {
+    // Prevent duplicate projects for the same accepted proposal
+    const existingProject = Project.all().find(
+      (project) => project.proposalId === p.id
+    );
+
+    if (!existingProject) {
+      Project.create({
+        id: id(),
+
+        proposalId: p.id,
+
+        title: job.title,
+        description: job.description || "",
+
+        clientId: job.clientId,
+        freelancerId: p.freelancerId,
+
+        budget: Number(p.bid || 0),
+
+        status: "active",
+
+        timeline: p.estimatedCompletionTime || "",
+
+        files: [],
+
+        milestones: [],
+
+        createdAt: now(),
+        updatedAt: now(),
+      });
+    }
+  }
+
+  return updatedProposal;
 }
+
 function remove(i, userId) {
   const p = get(i);
-  if (p.freelancerId !== userId)
-    throw Object.assign(new Error("Not allowed"), { status: 403 });
+
+  if (p.freelancerId !== userId) {
+    throw Object.assign(new Error("Not allowed"), {
+      status: 403,
+    });
+  }
+
   Proposal.delete(i);
 }
+
 module.exports = { list, get, create, update, remove };

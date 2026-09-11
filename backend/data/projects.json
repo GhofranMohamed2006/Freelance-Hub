@@ -1,1 +1,17 @@
-[]
+[
+  {
+    "id": "3832f314-12c3-4d95-b546-7777612b41ff",
+    "proposalId": "ab346b1f-3182-4b55-a07e-9edfed6592bb",
+    "title": "Video Editor",
+    "description": "test",
+    "clientId": "cc76252e-d7bd-40c9-93f4-d6f84afd89cc",
+    "freelancerId": "8a57cf45-6c7e-4b91-b20f-612bdf11cf1d",
+    "budget": 90,
+    "status": "active",
+    "timeline": "",
+    "files": [],
+    "milestones": [],
+    "createdAt": "2026-09-11T15:15:35.715Z",
+    "updatedAt": "2026-09-11T15:15:35.715Z"
+  }
+]

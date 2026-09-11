@@ -64,5 +64,23 @@
     "views": 382,
     "createdAt": "2026-09-11T00:58:16.686Z",
     "updatedAt": "2026-09-11T12:59:05.348Z"
+  },
+  {
+    "id": "46a376a8-4835-44a5-8bfc-a9340f02b2b4",
+    "title": "Video Editor",
+    "description": "test",
+    "category": "cat-video",
+    "skills": [
+      "Editing"
+    ],
+    "minBudget": "50",
+    "maxBudget": "100",
+    "experienceLevel": "",
+    "duration": "2-4-weeks",
+    "clientId": "cc76252e-d7bd-40c9-93f4-d6f84afd89cc",
+    "status": "open",
+    "views": 30,
+    "createdAt": "2026-09-11T15:13:40.087Z",
+    "updatedAt": "2026-09-11T15:19:46.961Z"
   }
 ]
