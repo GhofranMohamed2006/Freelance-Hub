@@ -27,7 +27,7 @@ import FreelancerEarnings from "./pages/freelancer/FreelancerEarnings";
 import FreelancerProposals from "./pages/freelancer/FreelancerProposals";
 import SubmitProposalPage from "./pages/public/freelancer/ProposalForm";
 import FindWork from "./pages/freelancer/FindWork";
-import WorkDetails from "./pages/freelancer/workDetails";
+import WorkDetails from "./pages/freelancer/WorkDetails";
 import FreelancerMessages from "./pages/freelancer/FreelancerMessages";
 
 // Auth & Public Pages
