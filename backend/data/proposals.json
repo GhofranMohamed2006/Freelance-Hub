@@ -46,8 +46,21 @@
     "estimatedCompletionTime": "",
     "coverLetter": "test",
     "skills": [],
-    "status": "pending",
+    "status": "accepted",
     "createdAt": "2026-09-11T00:17:48.698Z",
-    "updatedAt": "2026-09-11T00:17:48.698Z"
+    "updatedAt": "2026-09-11T13:16:43.721Z"
+  },
+  {
+    "id": "6fbd281b-1094-4ea1-95ec-5c9880bbf50f",
+    "jobId": "ac98a9f2-3a06-46e5-9d41-94919348d3fb",
+    "jobTitle": "react",
+    "freelancerId": "8a57cf45-6c7e-4b91-b20f-612bdf11cf1d",
+    "bid": 50,
+    "estimatedCompletionTime": "",
+    "coverLetter": "Testtttttttttttttttttttttt",
+    "skills": [],
+    "status": "pending",
+    "createdAt": "2026-09-11T13:46:31.795Z",
+    "updatedAt": "2026-09-11T13:46:31.795Z"
   }
 ]

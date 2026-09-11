@@ -122,14 +122,14 @@
     "avatar": "",
     "bio": "Aspiring Full Stack Developer and Data Analysis learner with skills in C++, HTML, CSS, and basic knowledge of Python and SQL. Currently learning JS and building practical projects to grow my skills, Seeking opportunities to apply my knowledge, gain experience, and grow in the tech industry.",
     "location": "Tanta, Egypt",
-    "hourlyRate": 0,
+    "hourlyRate": 100,
     "skills": [
       "HTML",
       "CSS",
       "Java Script"
     ],
     "createdAt": "2026-09-06T23:54:08.075Z",
-    "updatedAt": "2026-09-08T00:36:42.866Z",
+    "updatedAt": "2026-09-11T13:41:51.112Z",
     "certifications": [],
     "portfolio": [],
     "title": "Junior Full Stack Developer"

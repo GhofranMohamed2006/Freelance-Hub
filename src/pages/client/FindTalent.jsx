@@ -232,7 +232,7 @@ const FindTalent = () => {
 
                 <>
                     <motion.div variants={cardVariants} className="mb-4">
-                        <p className="text-sm text-gray-500">
+                        <p className="text-sm p-3 text-gray-500">
                             <span className="font-semibold text-gray-800">
                                 {freelancers.length}
                             </span>{" "}
@@ -341,10 +341,10 @@ const FindTalent = () => {
                                         type="button"
                                         onClick={() =>
                                             navigate(
-                                                `/freelancers/${freelancer.id}`
+                                                `/freelancer/${freelancer.id}`
                                             )
                                         }
-                                        className="flex items-center gap-1 text-sm font-semibold text-blue-600 transition hover:text-blue-700"
+                                        className="flex items-center gap-1 text-sm font-semibold text-blue-600 transition cursor-pointer hover:text-blue-700"
                                     >
                                         View Profile
                                         <FiArrowRight
