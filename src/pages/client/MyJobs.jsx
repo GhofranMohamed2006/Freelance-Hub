@@ -98,7 +98,7 @@ const MyJobs = () => {
                 <div className="rounded-xl bg-slate-50 p-3"><p className="text-xs text-slate-400">Views</p><p className="mt-1 font-semibold text-slate-800">{job.views || 0}</p></div>
               </div>
               <div className="mt-5 flex items-center justify-end gap-2">
-                <Link to={`/jobs/${job.id}`} className="rounded-lg border border-slate-200 px-4 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50">View</Link>
+                {/* <Link to={`/jobs/${job.id}`} className="rounded-lg border border-slate-200 px-4 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50">View</Link> */}
                 <Link to={`/jobs/${job.id}/proposals`} className="rounded-lg bg-blue-700 px-4 py-2 text-xs font-semibold text-white hover:bg-blue-800">Proposals</Link>
                 <Link to={`/post-job?edit=${job.id}`} className="rounded-lg border border-slate-200 p-2 text-slate-500 hover:bg-slate-50"><Edit3 className="h-4 w-4" /></Link>
                 <button onClick={() => removeJob(job.id)} className="rounded-lg border border-red-100 p-2 text-red-500 hover:bg-red-50"><Trash2 className="h-4 w-4" /></button>
