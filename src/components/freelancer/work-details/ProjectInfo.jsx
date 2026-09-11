@@ -131,22 +131,6 @@ const ProjectInfo = ({
                             </div>
                         </div>
 
-                        <div className="flex items-start gap-3">
-                            <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-indigo-50 text-indigo-600">
-                                <FiBriefcase className="h-4 w-4" />
-                            </div>
-
-                            <div>
-                                <p className="text-xs text-slate-400">
-                                    Experience
-                                </p>
-
-                                <p className="mt-1 text-sm font-semibold capitalize text-slate-800">
-                                    {job?.experienceLevel ||
-                                        "Any level"}
-                                </p>
-                            </div>
-                        </div>
 
                         <div className="flex items-start gap-3">
                             <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-indigo-50 text-indigo-600">

@@ -3,7 +3,6 @@ import { useNavigate, useParams } from "react-router-dom";
 import { FiAlertCircle, FiArrowLeft } from "react-icons/fi";
 import { motion } from "framer-motion";
 
-import { getJob, incrementJobViews } from "../../api/jobservice.api";
 import WorkDetailsHeader from "../../components/freelancer/work-details/workDetailsHeader";
 import WorkDescription from "../../components/freelancer/work-details/workDescription";
 import SkillsSection from "../../components/freelancer/work-details/skillsSection";
@@ -28,44 +27,37 @@ const WorkDetails = () => {
                 setLoading(true);
                 setError("");
 
-                const jobData = await getJob(jobId);
+                const response = await fetch(
+                    `http://localhost:5000/api/jobs/${jobId}`
+                );
+
+                if (!response.ok) {
+                    throw new Error("Failed to load work details.");
+                }
+
+                const jobData = await response.json();
+
                 setJob(jobData);
 
-                if (jobData?.clientId) {
+                if (jobData.clientId) {
                     try {
-                        const response = await fetch(
+                        const clientResponse = await fetch(
                             `http://localhost:5000/api/users/${jobData.clientId}/public-profile`
                         );
 
-                        if (response.ok) {
-                            const clientData = await response.json();
+                        if (clientResponse.ok) {
+                            const clientData = await clientResponse.json();
                             setClient(clientData);
                         }
                     } catch {
                         setClient(null);
                     }
                 }
-
-                try {
-                    const updatedJob = await incrementJobViews(jobId);
-
-                    if (updatedJob) {
-                        setJob((currentJob) => ({
-                            ...currentJob,
-                            ...updatedJob,
-                        }));
-                    }
-                } catch {
-                    // View count update should not block the page.
-                }
             } catch (err) {
                 console.error("Failed to load work details:", err);
 
                 setError(
-                    err?.response?.data?.message ||
-                    err?.response?.data?.error ||
-                    err?.message ||
-                    "Failed to load work details."
+                    err.message || "Failed to load work details."
                 );
             } finally {
                 setLoading(false);
@@ -148,9 +140,7 @@ const WorkDetails = () => {
                             skills={job.skills}
                         />
 
-                        <ClientCard
-                            client={client}
-                        />
+                        <ClientCard client={client} />
                     </main>
 
                     <ProjectInfo
