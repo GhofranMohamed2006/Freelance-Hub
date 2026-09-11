@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { getProposalsByJob, updateProposalStatus } from "../../../components/services/proposalService";
+import { useEffect, useState } from "react";
+import {
+  getProposalsByJob,
+  updateProposalStatus,
+} from "../../../components/services/proposalService";
 
 const ProposalsPage = () => {
-  const { jobId } = useParams();
   const [proposals, setProposals] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -13,44 +14,62 @@ const ProposalsPage = () => {
       try {
         setLoading(true);
         setError("");
-        const data = await getProposalsByJob(jobId);
-        setProposals(
-          Array.isArray(data)
-            ? data
-            : data.data || []
-        );
+
+        const data = await getProposalsByJob();
+        setProposals(Array.isArray(data) ? data : data?.data || []);
       } catch (err) {
         console.error("Error fetching proposals:", err);
-        setError(err.response?.data?.message || "Failed to load the submitted proposals");
+        setError(
+          err?.response?.data?.message ||
+            err?.cause?.response?.data?.message ||
+            err?.message ||
+            "Failed to load the submitted proposals",
+        );
       } finally {
         setLoading(false);
       }
     };
 
     fetchProposals();
-  }, [jobId]);
+  }, []);
 
   const handleStatusChange = async (proposalId, newStatus) => {
     try {
       await updateProposalStatus(proposalId, newStatus);
       setProposals((prev) =>
-        prev.map((p) => (p._id === proposalId || p.id === proposalId ? { ...p, status: newStatus } : p))
+        prev.map((p) =>
+          p._id === proposalId || p.id === proposalId
+            ? { ...p, status: newStatus }
+            : p,
+        ),
       );
       alert(`The display proposal has been changed to: ${newStatus}`);
     } catch (err) {
-      alert("Display proposal update failed: " + (err.response?.data?.message || err.message));
+      alert(
+        "Display proposal update failed: " +
+          (err?.response?.data?.message ||
+            err?.cause?.response?.data?.message ||
+            err?.message ||
+            "Unknown error"),
+      );
     }
   };
 
   if (loading) {
-    return <div className="p-8 text-center text-gray-500">Proposals are loading...</div>;
+    return (
+      <div className="p-8 text-center text-gray-500">
+        Proposals are loading...
+      </div>
+    );
   }
 
   return (
     <div className="max-w-5xl mx-auto my-6 p-4 sm:p-6">
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h1 className="text-2xl font-bold text-gray-800">Submitted Proposals</h1>
+          <h1 className="text-2xl font-bold text-gray-800">
+            Submitted Proposals
+          </h1>
           <p className="text-sm text-gray-500 mt-1">
             Review and evaluate proposals submitted by freelancers
           </p>
@@ -84,11 +103,17 @@ const ProposalsPage = () => {
               >
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-gray-100 pb-4">
                   <div>
-                    <h3 className="text-lg font-bold text-gray-800">{freelancerName}</h3>
-                    <p className="text-sm text-gray-500">{proposal.freelancer?.email}</p>
+                    <h3 className="text-lg font-bold text-gray-800">
+                      {freelancerName}
+                    </h3>
+                    <p className="text-sm text-gray-500">
+                      {proposal.freelancer?.email}
+                    </p>
                   </div>
                   <div className="text-right">
-                    <span className="text-xl font-bold text-indigo-600">${rate}</span>
+                    <span className="text-xl font-bold text-indigo-600">
+                      ${rate}
+                    </span>
                     <span className="text-xs text-gray-400 block">/ hour</span>
                   </div>
                 </div>
@@ -104,12 +129,13 @@ const ProposalsPage = () => {
 
                 <div className="flex flex-col sm:flex-row items-center justify-between gap-3 pt-3 border-t border-gray-100">
                   <span
-                    className={`px-3 py-1 rounded-full text-xs font-medium capitalize ${proposal.status === "accepted"
-                      ? "bg-emerald-100 text-emerald-700"
-                      : proposal.status === "rejected"
-                        ? "bg-rose-100 text-rose-700"
-                        : "bg-amber-100 text-amber-700"
-                      }`}
+                    className={`px-3 py-1 rounded-full text-xs font-medium capitalize ${
+                      proposal.status === "accepted"
+                        ? "bg-emerald-100 text-emerald-700"
+                        : proposal.status === "rejected"
+                          ? "bg-rose-100 text-rose-700"
+                          : "bg-amber-100 text-amber-700"
+                    }`}
                   >
                     Status: {proposal.status || "pending"}
                   </span>
@@ -142,4 +168,3 @@ const ProposalsPage = () => {
 };
 
 export default ProposalsPage;
-

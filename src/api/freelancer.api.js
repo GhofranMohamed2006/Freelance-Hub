@@ -13,8 +13,17 @@ export const getFreelancers = async (search = "", category = "") => {
 };
 
 export const getFreelancerProject = async (id) => {
-  const response = await api.get(`/projects/${id}`);
-  return response.data;
+  try {
+    const response = await api.get(`/projects/${id}`);
+    return response.data;
+  } catch (error) {
+    const message =
+      error?.response?.data?.message ||
+      error?.message ||
+      "Failed to load project";
+
+    throw new Error(message, { cause: error });
+  }
 };
 
 export const getFreelancerDashboard = async () => {

@@ -4,17 +4,29 @@ const User = require("../models/User");
 const { id, now, pick } = require("../utils/helpers");
 function list(q, user) {
   let a = Proposal.all();
-  if (q.jobId) a = a.filter((x) => x.jobId === q.jobId);
-  if (q.freelancerId) a = a.filter((x) => x.freelancerId === q.freelancerId);
+
+  if (q.jobId) {
+    const targetJobId = String(q.jobId);
+    a = a.filter((x) => String(x.jobId) === targetJobId);
+  }
+
+  if (q.freelancerId) {
+    const targetFreelancerId = String(q.freelancerId);
+    a = a.filter((x) => String(x.freelancerId) === targetFreelancerId);
+  }
+
   if (q.status) a = a.filter((x) => x.status === q.status);
-  if (user.role === "freelancer")
-    a = a.filter((x) => x.freelancerId === user.id);
-  if (user.role === "client") {
+
+  if (user && user.role === "freelancer")
+    a = a.filter((x) => String(x.freelancerId) === String(user.id));
+
+  if (user && user.role === "client") {
     a = a.filter((x) => {
       const job = Job.findById(x.jobId);
       return job && job.clientId === user.id;
     });
   }
+
   return a.map((proposal) => {
     const freelancer = User.findById(proposal.freelancerId);
     const job = Job.findById(proposal.jobId);
@@ -34,7 +46,11 @@ function list(q, user) {
 }
 function get(i) {
   const x = Proposal.findById(i);
-  if (!x) throw Object.assign(new Error("Proposal not found"), { status: 404 });
+
+  if (!x) {
+    throw Object.assign(new Error("Proposal not found"), { status: 404 });
+  }
+
   return x;
 }
 function create(b, userId) {
