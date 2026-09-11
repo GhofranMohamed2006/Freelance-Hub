@@ -5,12 +5,12 @@ import { motion } from "framer-motion";
 
 import api from "../../api/axios";
 
-import WorkDetailsHeader from "../../components/freelancer/work-details/workDetailsHeader";
-import WorkDescription from "../../components/freelancer/work-details/workDescription";
-import SkillsSection from "../../components/freelancer/work-details/skillsSection";
-import ProjectInfo from "../../components/freelancer/work-details/projectInfo";
-import ClientCard from "../../components/freelancer/work-details/clientCard";
-import WorkDetailsSkeleton from "../../components/freelancer/work-details/workDetailsSkeleton";
+import WorkDetailsHeader from "../../components/freelancer/work-details/WorkDetailsHeader";
+import WorkDescription from "../../components/freelancer/work-details/WorkDescription";
+import SkillsSection from "../../components/freelancer/work-details/SkillsSection";
+import ProjectInfo from "../../components/freelancer/work-details/ProjectInfo";
+import ClientCard from "../../components/freelancer/work-details/ClientCard";
+import WorkDetailsSkeleton from "../../components/freelancer/work-details/WorkDetailsSkeleton";
 
 const WorkDetails = () => {
     const { jobId } = useParams();
