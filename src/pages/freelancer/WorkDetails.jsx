@@ -3,7 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { FiAlertCircle, FiArrowLeft } from "react-icons/fi";
 import { motion } from "framer-motion";
 
-import { getJob, incrementJobViews } from "../../api/jobs.api";
+import { getJob, incrementJobViews } from "../../api/jobservice.api";
 import WorkDetailsHeader from "../../components/freelancer/work-details/workDetailsHeader";
 import WorkDescription from "../../components/freelancer/work-details/workDescription";
 import SkillsSection from "../../components/freelancer/work-details/skillsSection";
