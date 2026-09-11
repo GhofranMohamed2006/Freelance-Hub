@@ -3,6 +3,8 @@ import { useNavigate, useParams } from "react-router-dom";
 import { FiAlertCircle, FiArrowLeft } from "react-icons/fi";
 import { motion } from "framer-motion";
 
+import api from "../../api/axios";
+
 import WorkDetailsHeader from "../../components/freelancer/work-details/workDetailsHeader";
 import WorkDescription from "../../components/freelancer/work-details/workDescription";
 import SkillsSection from "../../components/freelancer/work-details/skillsSection";
@@ -27,28 +29,19 @@ const WorkDetails = () => {
                 setLoading(true);
                 setError("");
 
-                const response = await fetch(
-                    `http://localhost:5000/api/jobs/${jobId}`
-                );
+                const response = await api.get(`/jobs/${jobId}`);
 
-                if (!response.ok) {
-                    throw new Error("Failed to load work details.");
-                }
-
-                const jobData = await response.json();
+                const jobData = response.data;
 
                 setJob(jobData);
 
                 if (jobData.clientId) {
                     try {
-                        const clientResponse = await fetch(
-                            `http://localhost:5000/api/users/${jobData.clientId}/public-profile`
+                        const clientResponse = await api.get(
+                            `/users/${jobData.clientId}/public-profile`
                         );
 
-                        if (clientResponse.ok) {
-                            const clientData = await clientResponse.json();
-                            setClient(clientData);
-                        }
+                        setClient(clientResponse.data);
                     } catch {
                         setClient(null);
                     }
@@ -57,7 +50,9 @@ const WorkDetails = () => {
                 console.error("Failed to load work details:", err);
 
                 setError(
-                    err.message || "Failed to load work details."
+                    err.response?.data?.message ||
+                    err.message ||
+                    "Failed to load work details."
                 );
             } finally {
                 setLoading(false);
