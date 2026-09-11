@@ -27,7 +27,7 @@ import FreelancerEarnings from "./pages/freelancer/FreelancerEarnings";
 import FreelancerProposals from "./pages/freelancer/FreelancerProposals";
 import SubmitProposalPage from "./pages/public/freelancer/ProposalForm";
 import FindWork from "./pages/freelancer/FindWork";
-import WorkDetails from "./pages/freelancer/workDetails";
+import WorkDetails from "./pages/freelancer/WorkDetails";
 import FreelancerMessages from "./pages/freelancer/FreelancerMessages";
 
 // Auth & Public Pages
@@ -64,61 +64,28 @@ function App() {
       {/* ==================== CLIENT ==================== */}
       <Route element={<ProtectedRoute allowedRoles={["client"]} />}>
         <Route element={<ClientLayout />}>
-          <Route
-            path="/client-dashboard"
-            element={<ClientDashboard />}
-          />
+          <Route path="/client-dashboard" element={<ClientDashboard />} />
 
-          <Route
-            path="/post-job"
-            element={<PostJob />}
-          />
+          <Route path="/post-job" element={<PostJob />} />
 
-          <Route
-            path="/find-talents"
-            element={<FindTalent />}
-          />
+          <Route path="/find-talents" element={<FindTalent />} />
 
-          <Route
-            path="/myjobs"
-            element={<MyJobs />}
-          />
+          <Route path="/myjobs" element={<MyJobs />} />
 
-          <Route
-            path="/ongoingProjects"
-            element={<OngoingProjects />}
-          />
+          <Route path="/ongoingProjects" element={<OngoingProjects />} />
 
-          <Route
-            path="/projects/:id"
-            element={<ProjectDetails />}
-          />
+          <Route path="/projects/:id" element={<ProjectDetails />} />
 
           {/* Client Job Details */}
-          <Route
-            path="/client/jobs/:jobId"
-            element={<JobDetails />}
-          />
+          <Route path="/client/jobs/:jobId" element={<JobDetails />} />
 
-          <Route
-            path="/jobs/:jobId/proposals"
-            element={<ProposalsPage />}
-          />
+          <Route path="/jobs/:jobId/proposals" element={<ProposalsPage />} />
 
-          <Route
-            path="/proposals"
-            element={<ProposalsPage />}
-          />
+          <Route path="/proposals" element={<ProposalsPage />} />
 
-          <Route
-            path="/messages"
-            element={<ClientMessages />}
-          />
+          <Route path="/messages" element={<ClientMessages />} />
 
-          <Route
-            path="/client-settings"
-            element={<AccountSettings />}
-          />
+          <Route path="/client-settings" element={<AccountSettings />} />
         </Route>
       </Route>
 
@@ -130,75 +97,43 @@ function App() {
             element={<FreelancerDashboard />}
           />
 
-          <Route
-            path="/freelancer/projects"
-            element={<FreelancerProjects />}
-          />
+          <Route path="/freelancer/projects" element={<FreelancerProjects />} />
 
           <Route
             path="/freelancer/projects/:id"
             element={<FreelancerProjectWorkspace />}
           />
 
-          <Route
-            path="/jobs/:jobId/apply"
-            element={<SubmitProposalPage />}
-          />
+          <Route path="/jobs/:jobId/apply" element={<SubmitProposalPage />} />
 
           <Route
             path="/freelancer/proposals"
             element={<FreelancerProposals />}
           />
 
-          <Route
-            path="/freelancer/find-work"
-            element={<FindWork />}
-          />
+          <Route path="/freelancer/find-work" element={<FindWork />} />
 
           {/* Freelancer Job Details */}
-          <Route
-            path="/jobs/:jobId"
-            element={<WorkDetails />}
-          />
+          <Route path="/jobs/:jobId" element={<WorkDetails />} />
 
-          <Route
-            path="/freelancer/messages"
-            element={<FreelancerMessages />}
-          />
+          <Route path="/freelancer/messages" element={<FreelancerMessages />} />
 
-          <Route
-            path="/freelancer/earnings"
-            element={<FreelancerEarnings />}
-          />
+          <Route path="/freelancer/earnings" element={<FreelancerEarnings />} />
 
-          <Route
-            path="/freelancer/profile"
-            element={<FreelancerMyProfile />}
-          />
+          <Route path="/freelancer/profile" element={<FreelancerMyProfile />} />
 
-          <Route
-            path="/freelancer/settings"
-            element={<AccountSettings />}
-          />
+          <Route path="/freelancer/settings" element={<AccountSettings />} />
         </Route>
       </Route>
 
       {/* ==================== SHARED SETTINGS ==================== */}
       <Route
-        element={
-          <ProtectedRoute allowedRoles={["client", "freelancer"]} />
-        }
+        element={<ProtectedRoute allowedRoles={["client", "freelancer"]} />}
       >
         <Route element={<RoleSettingsLayout />}>
-          <Route
-            path="/settings"
-            element={<AccountSettings />}
-          />
+          <Route path="/settings" element={<AccountSettings />} />
 
-          <Route
-            path="/notifications"
-            element={<Notifications />}
-          />
+          <Route path="/notifications" element={<Notifications />} />
         </Route>
       </Route>
 
