@@ -46,5 +46,23 @@
     "views": 0,
     "createdAt": "2026-09-09T23:16:30.421Z",
     "updatedAt": "2026-09-09T23:16:30.421Z"
+  },
+  {
+    "id": "ac98a9f2-3a06-46e5-9d41-94919348d3fb",
+    "title": "react",
+    "description": "react",
+    "category": "cat-mobile",
+    "skills": [
+      "react"
+    ],
+    "minBudget": "10",
+    "maxBudget": "20",
+    "experienceLevel": "",
+    "duration": "1-2-weeks",
+    "clientId": "6e5c810a-0dd2-444c-8810-706843cc4ad8",
+    "status": "open",
+    "views": 300,
+    "createdAt": "2026-09-11T00:58:16.686Z",
+    "updatedAt": "2026-09-11T01:19:13.900Z"
   }
 ]
