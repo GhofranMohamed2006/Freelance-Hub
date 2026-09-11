@@ -4,9 +4,22 @@ import { useAuth } from "../context/AuthContext";
 const ProtectedRoute = ({ allowedRoles }) => {
     const { user, token } = useAuth();
 
-    if (!token) return <Navigate to="/login" replace />;
+    console.log("ProtectedRoute:", {
+        token,
+        user,
+        role: user?.role,
+        allowedRoles,
+    });
 
-    if (allowedRoles && !allowedRoles.includes(user?.role)) {
+    if (!token) {
+        return <Navigate to="/login" replace />;
+    }
+
+    if (!user) {
+        return <div>Loading...</div>;
+    }
+
+    if (allowedRoles && !allowedRoles.includes(user.role)) {
         return <Navigate to="/" replace />;
     }
 
