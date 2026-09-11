@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-
 import JobCard from "./JobCards";
 import EmptyJobs from "./EmptyJobs";
 
@@ -8,6 +7,7 @@ const JobList = ({
     savedJobs,
     onSave,
     onApply,
+    onViewDetails,
     onClear,
     getCategory,
     getClientName,
@@ -61,6 +61,7 @@ const JobList = ({
                                 isSaved={savedJobs.includes(jobId)}
                                 onSave={onSave}
                                 onApply={onApply}
+                                onViewDetails={onViewDetails}
                                 getCategory={getCategory}
                                 getClientName={getClientName}
                                 getSkills={getSkills}

@@ -5,6 +5,7 @@ import {
     FiDollarSign,
     FiMapPin,
     FiArrowRight,
+    FiEye,
 } from "react-icons/fi";
 
 import { motion } from "framer-motion";
@@ -14,6 +15,7 @@ const JobCard = ({
     isSaved,
     onSave,
     onApply,
+    onViewDetails,
     getCategory,
     getClientName,
     getSkills,
@@ -183,40 +185,61 @@ const JobCard = ({
                 </div>
             </div>
 
-            {/* Footer */}
-            <div className="mt-5 flex flex-col gap-4 border-t border-slate-100 pt-5 sm:flex-row sm:items-center sm:justify-between">
-                <div className="flex flex-wrap items-center gap-4">
-                    {job?.paymentVerified && (
-                        <span className="flex items-center gap-1.5 text-xs font-medium text-emerald-600">
-                            <FiCheckCircle className="h-4 w-4" />
-                            Payment verified
-                        </span>
-                    )}
+            {/* Footer Info */}
+            <div className="mt-5 flex flex-wrap items-center gap-4 border-t border-slate-100 pt-5">
+                {job?.paymentVerified && (
+                    <span className="flex items-center gap-1.5 text-xs font-medium text-emerald-600">
+                        <FiCheckCircle className="h-4 w-4" />
+                        Payment verified
+                    </span>
+                )}
 
-                    {job?.views !== undefined && (
-                        <span className="text-xs text-slate-400">
-                            {job.views} views
-                        </span>
-                    )}
-                </div>
+                {job?.views !== undefined && (
+                    <span className="text-xs text-slate-400">
+                        {job.views} views
+                    </span>
+                )}
+            </div>
 
-                {/* Apply */}
+            {/* Actions */}
+            <div className="mt-5 flex flex-col gap-3 sm:flex-row">
+                <button
+                    type="button"
+                    onClick={() => onViewDetails(job)}
+                    className="
+                        flex flex-1 items-center justify-center gap-2
+                        rounded-xl
+                        border border-slate-200
+                        bg-white
+                        px-4 py-3
+                        text-sm font-semibold
+                        text-slate-700
+                        transition
+                        hover:border-indigo-200
+                        hover:bg-indigo-50
+                        hover:text-indigo-600
+                    "
+                >
+                    <FiEye className="h-4 w-4" />
+                    View Details
+                </button>
+
                 <button
                     type="button"
                     onClick={() => onApply(job)}
                     className="
-                        flex items-center justify-center gap-2
+                        flex flex-1 items-center justify-center gap-2
                         rounded-xl
                         bg-indigo-600
-                        px-5 py-3
-                        text-sm font-semibold text-white
+                        px-4 py-3
+                        text-sm font-semibold
+                        text-white
                         transition
                         hover:bg-indigo-700
                     "
                 >
                     Apply Now
-
-                    <FiArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+                    <FiArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </button>
             </div>
         </motion.article>

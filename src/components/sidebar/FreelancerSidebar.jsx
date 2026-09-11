@@ -1,6 +1,4 @@
-import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
-
 import {
     LayoutDashboard,
     BriefcaseBusiness,
@@ -14,34 +12,10 @@ import {
     X,
 } from "lucide-react";
 
-import { getMe } from "../../api/auth.api.js";
+import { useAuth } from "../context/AuthContext";
 
 const FreelancerSidebar = ({ onNavigate }) => {
-    const [user, setUser] = useState(null);
-    const [error, setError] = useState("");
-
-    useEffect(() => {
-        const loadUser = async () => {
-            try {
-                setError("");
-
-                const data = await getMe();
-
-                setUser(data.user || data);
-            } catch (err) {
-                console.error("Failed to load freelancer profile:", err);
-
-                setError(
-                    err?.response?.data?.message ||
-                    err?.response?.data?.error ||
-                    err?.message ||
-                    "Failed to load profile",
-                );
-            }
-        };
-
-        loadUser();
-    }, []);
+    const { user } = useAuth();
 
     const links = [
         {
@@ -133,10 +107,9 @@ const FreelancerSidebar = ({ onNavigate }) => {
                             to={path}
                             onClick={onNavigate}
                             className={({ isActive }) =>
-                                `flex items-center gap-3.5 rounded-xl px-4 py-3 text-sm font-medium transition-all duration-200 ${
-                                    isActive
-                                        ? "bg-indigo-600 text-white shadow-sm"
-                                        : "text-slate-600 hover:bg-indigo-50 hover:text-indigo-600"
+                                `flex items-center gap-3.5 rounded-xl px-4 py-3 text-sm font-medium transition-all duration-200 ${isActive
+                                    ? "bg-indigo-600 text-white shadow-sm"
+                                    : "text-slate-600 hover:bg-indigo-50 hover:text-indigo-600"
                                 }`
                             }
                         >
@@ -151,22 +124,6 @@ const FreelancerSidebar = ({ onNavigate }) => {
                 </div>
 
             </nav>
-
-            {/* ================= ERROR ================= */}
-
-            {error && (
-                <div className="mx-4 mb-3 shrink-0 rounded-xl border border-red-200 bg-red-50 p-3">
-
-                    <p className="text-xs font-semibold text-red-700">
-                        Profile Error
-                    </p>
-
-                    <p className="mt-1 break-words text-xs leading-5 text-red-600">
-                        {error}
-                    </p>
-
-                </div>
-            )}
 
             {/* ================= USER PROFILE ================= */}
 

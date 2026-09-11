@@ -10,6 +10,15 @@ import JobFilters from "../../components/freelancer/find-work/JobFilters";
 import JobList from "../../components/freelancer/find-work/JobList";
 
 const FindWork = () => {
+    const handleViewDetails = (job) => {
+        const jobId = getJobId(job);
+
+        if (!jobId) {
+            return;
+        }
+
+        navigate(`/jobs/${jobId}`);
+    };
     const navigate = useNavigate();
 
     // ==========================================
@@ -514,6 +523,7 @@ const FindWork = () => {
                         getJobIcon={getJobIcon}
                         formatDate={formatDate}
                         getBudgetText={getBudgetText}
+                        onViewDetails={handleViewDetails}
                     />
 
                     {/* Filters - Right */}

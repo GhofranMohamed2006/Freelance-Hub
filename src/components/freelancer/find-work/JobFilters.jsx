@@ -65,23 +65,6 @@ const JobFilters = ({
                     />
                 </div>
 
-                <div className="mb-6">
-                    <label className="mb-3 block text-sm font-semibold text-slate-800">
-                        Experience Level
-                    </label>
-
-                    <CustomDropdown
-                        value={experience}
-                        onChange={setExperience}
-                        options={[
-                            { value: "all", label: "Any Level" },
-                            { value: "entry", label: "Entry Level" },
-                            { value: "intermediate", label: "Intermediate" },
-                            { value: "expert", label: "Expert" },
-                        ]}
-                    />
-                </div>
-
                 <div>
                     <label className="mb-3 block text-sm font-semibold text-slate-800">
                         Project Duration

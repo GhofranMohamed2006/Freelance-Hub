@@ -18,6 +18,7 @@ import FreelancerProjectWorkspace from "./pages/freelancer/FreelancerProjectWork
 import FreelancerProfile from "./components/freelancer/FreelancerProfile";
 import SubmitProposalPage from "./pages/public/freelancer/ProposalForm";
 import FindWork from "./pages/freelancer/FindWork";
+import WorkDetails from "./pages/freelancer/workDetails";
 
 // Auth & Public Pages
 import Register from "./pages/auth/Register";
@@ -71,6 +72,7 @@ function App() {
           <Route path="/freelancer/proposals" element={<SubmitProposalPage />} />
 
           <Route path="/freelancer/find-work" element={<FindWork />} />
+          <Route path="/jobs/:jobId" element={<WorkDetails />} />
         </Route>
       </Route>
     </Routes>
