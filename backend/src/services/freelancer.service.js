@@ -3,6 +3,7 @@ const Proposal = require("../models/Proposal");
 const Payment = require("../models/Payment");
 const Notification = require("../models/Notification");
 const User = require("../models/User");
+const Job = require("../models/Job");
 const { pick, sanitizeUser } = require("../utils/helpers");
 
 function dashboard(user) {
@@ -15,6 +16,7 @@ function dashboard(user) {
   const allProposals = Proposal.all().filter((p) => p.freelancerId === uid);
   const allPayments = Payment.all().filter((p) => p.freelancerId === uid);
   const allNotifications = Notification.all().filter((n) => n.userId === uid);
+  const jobsById = Object.fromEntries(Job.all().map((job) => [job.id, job]));
 
   const totalEarned = allPayments
     .filter((p) => p.status === "paid")
@@ -41,9 +43,11 @@ function dashboard(user) {
       });
   }
   for (const pr of allProposals) {
+    const job = jobsById[pr.jobId];
+    const jobName = job?.title || pr.jobTitle || "Unknown job";
     activity.push({
       type: "proposal",
-      message: `Proposal ${pr.status || ""} for job ${pr.jobId || ""}`,
+      message: `Proposal ${pr.status || ""} for job ${jobName}`,
       date: pr.updatedAt || pr.createdAt,
       refId: pr.id,
     });
@@ -71,7 +75,19 @@ function dashboard(user) {
         new Date(b.updatedAt || b.createdAt || 0) -
         new Date(a.updatedAt || a.createdAt || 0),
     )
-    .slice(0, 10);
+    .slice(0, 10)
+    .map((proposal) => {
+      const job = jobsById[proposal.jobId];
+      const jobTitle = job?.title || proposal.jobTitle || "Job Proposal";
+      return {
+        ...proposal,
+        title: jobTitle,
+        jobTitle,
+        job: job
+          ? { id: job.id, title: job.title, clientId: job.clientId }
+          : proposal.job || null,
+      };
+    });
   const recentActivity = activity.slice(0, 10);
   const notifications = allNotifications
     .sort(

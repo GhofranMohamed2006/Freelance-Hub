@@ -298,8 +298,8 @@ export default function FreelancerDashboard() {
                             </div>
 
                             <span
-                              className={`w-fit rounded-full px-3 py-1 text-xs font-semibold ${getStatusClass(
-                                project.status,
+                              className={`w-fit rounded-full  px-3 py-1 text-xs font-semibold ${getStatusClass(
+                                
                               )}`}
                             >
                               {project.status || "Active"}
@@ -547,10 +547,11 @@ export default function FreelancerDashboard() {
                 <motion.div
                   key={notification.id || index}
                   whileHover={{ y: -2 }}
-                  className={`rounded-2xl border p-4 ${notification.read
+                  className={`rounded-2xl border p-4 ${
+                    notification.read
                       ? "border-slate-100 bg-white"
                       : "border-indigo-100 bg-indigo-50/40"
-                    }`}
+                  }`}
                 >
                   <div className="flex gap-3">
                     <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-indigo-100 text-indigo-600">
@@ -595,6 +596,3 @@ export default function FreelancerDashboard() {
     </motion.div>
   );
 }
-
-
-
