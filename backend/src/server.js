@@ -40,4 +40,10 @@ app.use("/api/freelancer", require("./routes/freelancer.routes"));
 app.use(notFound);
 app.use(errorHandler);
 
-app.listen(port, () => console.log(`Lynk API: http://localhost:${port}`));
+if (require.main === module) {
+  app.listen(port, () => {
+    console.log(`Lynk API: http://localhost:${port}`);
+  });
+}
+
+module.exports = app;
