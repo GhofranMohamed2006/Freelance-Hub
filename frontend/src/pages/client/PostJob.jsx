@@ -45,6 +45,7 @@ function PostJob() {
                 );
             } catch (error) {
                 console.error("Error fetching categories:", error);
+                throw error;
             } finally {
                 setLoadingCategories(false);
             }

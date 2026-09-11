@@ -73,10 +73,7 @@ const Login = () => {
     setIsSubmitting(true);
 
     try {
-      console.log("Login Data:", {
-        email: formData.email,
-        password: formData.password,
-      });
+  
 
       // Login through AuthContext
       const data = await login(formData.email, formData.password);

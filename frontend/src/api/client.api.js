@@ -1,4 +1,4 @@
-const API_URL = "/api";
+const API_URL = (import.meta.env.VITE_API_URL || "/api").replace(/\/+$/, "");
 
 export const getClientDashboard = async () => {
   const token = localStorage.getItem("lynk_token");

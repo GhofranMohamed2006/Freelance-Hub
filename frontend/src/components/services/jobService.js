@@ -9,9 +9,6 @@ const jobApi = axios.create({
 export const createJob = async (jobData) => {
   const token = localStorage.getItem("lynk_token");
 
-  console.log("TOKEN:", token);
-  console.log("JOB DATA:", jobData);
-
   try {
     const response = await jobApi.post("/jobs", jobData, {
       headers: {
